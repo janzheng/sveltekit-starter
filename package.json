@@ -1,0 +1,53 @@
+{
+  "name": "sveltekit-starter",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "svelte-kit",
+    "devopen": "svelte-kit dev --open",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "commit": "git add . -A ; git commit ; git push origin main ",
+    "commitprod": "git add . -A ; git commit ; git push origin prod ",
+    "notes": "yarn install necessary to include any yarn linked components",
+    "stage": "yarn install; vercel",
+    "plasmid": "ln -s ../../../plasmid/"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^1.29.1",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
+    "@sveltejs/kit": "next",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "autoprefixer": "^10.4.0",
+    "coeur": "^0.2.311",
+    "cssnano": "^5.0.15",
+    "cytosis": "^0.0.5",
+    "mdsvex": "^0.9.8",
+    "plasmid": "git+https://github.com/janzheng/plasmid.git",
+    "postcss": "^8.4.5",
+    "postcss-import": "^14.0.2",
+    "postcss-load-config": "^3.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-nesting": "^10.1.1",
+    "postcss-scss": "^4.0.2",
+    "rehype-slug": "^5.0.1",
+    "sass": "^1.45.2",
+    "svelte": "^3.44.3",
+    "svelte-preprocess": "^4.10.1",
+    "svelte-seo": "^1.3.1",
+    "tailwind-elements": "^0.2.0",
+    "tailwindcss": "^3.0.7"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/inter": "^4.5.1",
+    "@lukeed/uuid": "^2.0.0",
+    "cookie": "^0.4.1",
+    "plasmid": "git+https://github.com/janzheng/plasmid.git"
+  },
+  "publishConfig": {
+    "@janzheng:registry": "https://npm.pkg.github.com"
+  }
+}

@@ -1,0 +1,25 @@
+// @import '@fontsource/inter';
+@import '@fontsource/inter/300';
+@import '@fontsource/inter/400';
+@import '@fontsource/inter/700';
+/* @import '@fontsource/fira-mono'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import './lib/themes/plasmid';
+// @import './lib/themes/sveltekit';
+
+
+// include coeur templates if needed; treated as a separate theme
+@import './lib/themes/coeur';
+
+
+@layer base {
+  .active a {
+    @apply text-_yellow font-bold;
+  }
+}
