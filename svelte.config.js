@@ -2,7 +2,7 @@
 import adapter_static from '@sveltejs/adapter-static'
 // import vercel from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess'
-// import adapter_ipfs from 'sveltejs-adapter-ipfs';
+import adapter_ipfs from 'sveltejs-adapter-ipfs';
 
 import { mdsvex } from 'mdsvex'
 import path from 'path'
