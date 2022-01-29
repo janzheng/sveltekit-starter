@@ -1,7 +1,7 @@
 {
  "build": {
    "image": "node:14",
-   "command": "npm run build",
+   "command": "npm install @sveltejs/kit && npm run build",
    "publicDir": "build",
    "environment": {
      "SOME_ENV": "Build finished!"
