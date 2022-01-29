@@ -2,9 +2,6 @@ import { api } from './_api';
 
 // GET /todos.json
 export const get = async (request) => {
-
-  const body = await request.json();
-
 	// request.locals.userid comes from src/hooks.js
 	const response = await api(request, `todos/${request.locals.userid}`);
 
