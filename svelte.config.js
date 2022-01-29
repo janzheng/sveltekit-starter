@@ -52,7 +52,8 @@ const config = {
 
   // ipfs, fleek; from Jolly Roger
   kit: {
-    adapter: adapter_ipfs({
+    // adapter: adapter_ipfs({
+    adapter: adapter_static({
       assets: './build',
       pages: './build',
       removeBuiltInServiceWorkerRegistration: true,

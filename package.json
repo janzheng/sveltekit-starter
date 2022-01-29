@@ -45,8 +45,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.1",
     "@lukeed/uuid": "^2.0.0",
-    "cookie": "^0.4.1",
-    "plasmid": "git+https://github.com/janzheng/plasmid.git"
+    "cookie": "^0.4.1"
   },
   "publishConfig": {
     "@janzheng:registry": "https://npm.pkg.github.com"
