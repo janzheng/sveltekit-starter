@@ -18,7 +18,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
-    "sveltejs-adapter-ipfs": "next",
+    "sveltejs-adapter-ipfs": "^0.2.1",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
