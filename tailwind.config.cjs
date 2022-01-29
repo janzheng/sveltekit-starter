@@ -19,7 +19,7 @@ module.exports = {
     './src/**/*.html',
     './src/**/*.svelte'
   ],
-  darkMode: false, // or true or 'media' or 'class'
+  darkMode: 'media', // or true or 'media' or 'class'
   theme: {
     screens: {
       'sm': '640px',

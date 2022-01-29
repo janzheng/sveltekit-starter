@@ -2,7 +2,7 @@
   "name": "sveltekit-starter",
   "version": "0.1.0",
   "scripts": {
-    "dev": "svelte-kit",
+    "dev": "svelte-kit dev",
     "devopen": "svelte-kit dev --open",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
@@ -16,8 +16,9 @@
   "devDependencies": {
     "@supabase/supabase-js": "^1.29.1",
     "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-static": "^1.0.0-next.26",
+    "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
+    "sveltejs-adapter-ipfs": "next",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
@@ -37,7 +38,6 @@
     "svelte": "^3.44.3",
     "svelte-preprocess": "^4.10.1",
     "svelte-seo": "^1.3.1",
-    "sveltejs-adapter-ipfs": "^0.2.1",
     "tailwind-elements": "^0.2.0",
     "tailwindcss": "^3.0.7"
   },

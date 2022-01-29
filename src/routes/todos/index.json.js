@@ -5,7 +5,6 @@ export const get = async (request) => {
 	// request.locals.userid comes from src/hooks.js
 	const response = await api(request, `todos/${request.locals.userid}`);
 
-  console.log('response:', response)
 	if (response.status === 404) {
 		// user hasn't created a todo list.
 		// start with an empty array
