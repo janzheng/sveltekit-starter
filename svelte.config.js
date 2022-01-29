@@ -34,7 +34,8 @@ const config = {
         alias: {
           // these are the aliases and paths to them
           '@lib': path.resolve('./src/lib'),
-          '@plasmid': path.resolve('./src/plasmid'),
+          '@plasmid': path.resolve('./src/plasmid'), // local linked
+          // '@plasmid': path.resolve('./node_modules/plasmid'), // git linked
           '@modules': path.resolve('./node_modules'),
         }
       }
