@@ -7,7 +7,7 @@
 
 
 <footer class="footer ">
-  <div class="relative max-w-7xl mx-auto pb-16 md:flex-row md:flex items-center gap-8 text-white w-full h-full">
+  <div class="_content md:flex-row md:flex items-center gap-8">
 
     <div class="footer-title py-8 grow">
       <div class="p-8 pr-8 md:mr-8 border-r border-r-white border-r-half">

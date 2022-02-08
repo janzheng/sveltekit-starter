@@ -1,0 +1,36 @@
+{
+  "type": "module",
+  "name": "airtable_upper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy": "deta deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cytosis": "^0.0.5",
+    "deta": "^1.0.1",
+    "dotenv": "^16.0.0",
+    "fastify": "^3.27.1",
+    "fastify-cors": "^6.0.2",
+    "fastify-formbody": "^5.2.0",
+    "fastify-formidable": "^1.1.0",
+    "fastify-multipart": "^5.3.0",
+    "fastify-url-data": "^3.0.3",
+    "file-type": "^17.1.1",
+    "plasmid": "git+https://github.com/janzheng/plasmid.git",
+    "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
