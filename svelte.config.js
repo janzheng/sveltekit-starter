@@ -35,17 +35,17 @@ const config = {
 	kit: {
     // adapter: adapter_auto(),
     adapter: adapter_vercel(),
-    // adapter: adapter_static(),
 
     // used for static, to generate a bunch of pages
+    // adapter: adapter_static(),
     // prerender: {
     //   crawl: true,
     //   enabled: true,
     //   // pages: // generate an array of pages
     //   entries: [
     //     "/blog/slug/one-one",
-    //     "/blog/slug/two-two"
-    //     "*",
+    //     "/blog/slug/two-two",
+    //     "*"
     //   ]
     // },
 

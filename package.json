@@ -10,6 +10,7 @@
     "preview": "svelte-kit preview",
     "commit": "git add . -A ; git commit ; git push origin main ",
     "commitprod": "git add . -A ; git commit ; git push origin prod ",
+    "prod": "link vercel directly to prod branch; don't push to prod",
     "surge": "yarn build; cd build; surge . -d sveltekit-starterama.surge.sh",
     "stage": "yarn install; vercel",
     "plasmid": "ln -s ../../../plasmid/"

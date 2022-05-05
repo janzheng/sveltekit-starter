@@ -42,7 +42,7 @@
 	<title>Todos</title>
 </svelte:head>
 
-<div class="todos">
+<div class="todos _content">
 	<h1>Todos</h1>
 
 	<form
@@ -117,9 +117,9 @@
 
 <style>
 	.todos {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
+		/* width: 100%; */
+		/* max-width: var(--column-width); */
+		/* margin: var(--column-margin-top) auto 0 auto; */
 		line-height: 1;
 	}
 
