@@ -1,27 +1,25 @@
-// // need to be uncommented for svelte demo
+// need to be uncommented for svelte demo
 
-// import cookie from 'cookie';
-// import { v4 as uuid } from '@lukeed/uuid';
+import cookie from 'cookie';
+import { v4 as uuid } from '@lukeed/uuid';
 
-// export const handle = async ({ request, resolve }) => {
-// 	const cookies = cookie.parse(request.headers.cookie || '');
-// 	request.locals.userid = cookies.userid || uuid();
+export const handle = async ({ event, resolve }) => {
 
-// 	// TODO https://github.com/sveltejs/kit/issues/1046
-// 	if (request.url.searchParams.has('_method')) {
-//     request.method = request.url.searchParams.get('_method').toUpperCase();
-// 	}
+  const cookies = cookie.parse(event.request.headers.get('cookie') || '');
+  event.locals.userid = cookies['userid'] || uuid();
 
-// 	const response = await resolve(request);
+  let response = await resolve(event);
 
-// 	if (!cookies.userid) {
-// 		// if this is the first time the user has visited this app,
-// 		// set a cookie so that we recognise them when they return
-// 		response.headers['set-cookie'] = cookie.serialize('userid', request.locals.userid, {
-// 			path: '/',
-// 			httpOnly: true
-// 		});
-// 	}
+	if (!cookies.userid) {
+		// if this is the first time the user has visited this app,
+		// set a cookie so that we recognise them when they return
+    response.headers.set('set-cookie',
+      cookie.serialize('userid', event.locals.userid, {
+        path: '/',
+        httpOnly: true
+      })
+    )
+	}
 
-// 	return response;
-// };
+	return response;
+};

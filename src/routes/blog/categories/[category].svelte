@@ -10,8 +10,26 @@
 
     return {
       props: {
+        category: params.category,
         posts: matchingPosts
       }
     }
   }
 </script>
+
+
+<script>
+
+  export let posts, category
+  $: console.log(posts, category)
+
+</script>
+
+
+<div class="_content">
+  <h2>{category}</h2>
+  {#each posts as post}
+     {@html post.body.html }
+  {/each}
+
+</div>

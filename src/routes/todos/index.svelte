@@ -8,6 +8,7 @@
 		if (res.ok) {
 			const todos = await res.json();
 
+      console.log('todos/index loaded todos:', todos)
 			return {
 				props: { todos }
 			};
@@ -51,6 +52,7 @@
 		use:enhance={{
 			result: async (res, form) => {
 				const created = await res.json();
+        console.log('----> created :' , created)
 				todos = [...todos, created];
 
 				form.reset();
@@ -68,7 +70,7 @@
 			animate:flip={{ duration: 200 }}
 		>
 			<form
-				action="/todos/{todo.uid}.json?_method=patch"
+				action="/todos.json?_method=PATCH"
 				method="post"
 				use:enhance={{
 					pending: (data) => {
@@ -77,24 +79,27 @@
 					result: patch
 				}}
 			>
+      
+				<input type="hidden" name="uid" value={todo.uid} />
 				<input type="hidden" name="done" value={todo.done ? '' : 'true'} />
 				<button class="toggle" aria-label="Mark todo as {todo.done ? 'not done' : 'done'}" />
 			</form>
 
 			<form
 				class="text"
-				action="/todos/{todo.uid}.json?_method=patch"
+				action="/todos.json?_method=PATCH"
 				method="post"
 				use:enhance={{
 					result: patch
 				}}
 			>
+				<input type="hidden" name="uid" value={todo.uid} />
 				<input aria-label="Edit todo" type="text" name="text" value={todo.text} />
 				<button class="save" aria-label="Save todo" />
 			</form>
 
 			<form
-				action="/todos/{todo.uid}.json?_method=delete"
+				action="/todos.json?_method=DELETE"
 				method="post"
 				use:enhance={{
 					pending: () => (todo.pending_delete = true),
@@ -103,6 +108,7 @@
 					}
 				}}
 			>
+				<input type="hidden" name="uid" value={todo.uid} />
 				<button class="delete" aria-label="Delete todo" disabled={todo.pending_delete} />
 			</form>
 		</div>

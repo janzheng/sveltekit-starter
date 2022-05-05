@@ -22,8 +22,9 @@ app.register(require('fastify-formbody'))
 
 
 
-
-
+app.get('/', function (request, reply) {
+    reply.send("wtf!?")
+})
 
 app.post('/', async function(request, reply) {
   // you need to call the parser if you do not pass any option through plugin registration
@@ -36,6 +37,14 @@ app.post('/', async function(request, reply) {
   // note that file fields will exist in body and it will becomes the file path saved on disk
   const body = request.body
 
+  // // access all the files path
+  // // request[kFileSavedPaths]
+
+  // // check if it is multipart
+  // // if( request[kIsMultipart] === true ) {}
+
+  // // check if it is already parsed
+  // // if ( request[kIsMultipartParsed] === true ) {}
 
   console.log('files/body ::: ', files, body)
   reply.send({files, body})

@@ -28,19 +28,14 @@
 <div class="_content">
 	<h1>Deta Airtable Upload Example</h1>
 
-  <!-- action="/deta/airtable" -->
-  <!-- https://pqn512.deta.dev/ -->
 	<form
 		class="new"
-		action="http://localhost:3001/"
+		action="/deta/airtable"
 		method="post"
     enctype="multipart/form-data"
 		use:enhance={{
 			result: async (res, form) => {
-        console.log('result :::: ', res)
-
-				console.log('response:',await res.json())
-
+        console.log('result ... ')
 			}
 		}}
 	>

@@ -30,11 +30,29 @@ const config = {
   ],
   extensions: ['.svelte', '.md'],
 
+
   // vercel; regular deployment
 	kit: {
     // adapter: adapter_auto(),
     adapter: adapter_vercel(),
     // adapter: adapter_static(),
+
+    // used for static, to generate a bunch of pages
+    // prerender: {
+    //   crawl: true,
+    //   enabled: true,
+    //   // pages: // generate an array of pages
+    //   entries: [
+    //     "/blog/slug/one-one",
+    //     "/blog/slug/two-two"
+    //     "*",
+    //   ]
+    // },
+
+    methodOverride: {
+      parameter: '_method',
+      allowed: ['POST', 'DELETE', 'PATCH']
+    },
 
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
