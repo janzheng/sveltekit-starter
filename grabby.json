@@ -1,0 +1,35 @@
+{ 
+  "flat": false,
+  "sources": [
+    {
+      "name": "notion_intro",
+      "type": "whimsy",
+      "key": "_id",
+      "inputs": {
+        "url": "https://notion-cloudflare-worker.yawnxyz.workers.dev",
+        "ids": [
+          "/page/a8307b3892704898b42816e5f86cb349",
+          "/page/7bfd7ca39fce47cea724b7beb09ab33f"
+        ]
+      }
+    },
+
+    {
+      "name": "airtable_content",
+      "type":"airtable",
+      "key": "_id",
+      "inputs": {
+        "apiKey": "AIRTABLE_PRIVATE_API",
+        "baseId": "AIRTABLE_PRIVATE_BASE",
+        "bases": [
+          {
+            "tables": ["Content"],
+            "options": {
+            }
+          }
+        ]
+      }
+    }
+
+  ]
+}

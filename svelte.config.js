@@ -10,6 +10,10 @@ import remarkAttr from 'remark-attr'
 import rehypeSlug from 'rehype-slug'
 // import autoprefixer from 'autoprefixer'
 
+import { config as dotenvconf } from "dotenv"
+dotenvconf()
+console.log('local::', process.env.USE_LOCAL)
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: [
@@ -32,42 +36,43 @@ const config = {
 
 
   // vercel; regular deployment
-	kit: {
+  kit: {
     // adapter: adapter_auto(),
     adapter: adapter_vercel(),
 
     // used for static, to generate a bunch of pages
     // adapter: adapter_static(),
-    // prerender: {
-    //   crawl: true,
-    //   enabled: true,
-    //   // pages: // generate an array of pages
-    //   entries: [
-    //     "/blog/slug/one-one",
-    //     "/blog/slug/two-two",
-    //     "*"
-    //   ]
-    // },
+    prerender: {
+      crawl: true,
+      enabled: true,
+      // pages: // generate an array of pages
+      entries: [
+        // "/blog/slug/one-one",
+        // "/blog/slug/two-two",
+        "*"
+      ]
+    },
 
     methodOverride: {
       parameter: '_method',
       allowed: ['POST', 'DELETE', 'PATCH']
     },
 
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
+    // hydrate the <div id="svelte"> element in src/app.html
+    // target: '#svelte',
     vite: {
       resolve: {
         alias: {
           // these are the aliases and paths to them
-          '@lib': path.resolve('./src/lib'),
-          '@plasmid': path.resolve('./src/plasmid'), // local linked
-          // '@plasmid': path.resolve('./node_modules/plasmid'), // git linked
-          '@modules': path.resolve('./node_modules'),
+          $lib: path.resolve('./src/lib'),
+          '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
+          // '$plasmid': path.resolve('./src/plasmid'), // local linked
+          // $plasmid: path.resolve('./node_modules/plasmid'), // git linked
+          $modules: path.resolve('./node_modules'),
         }
       },
     }
-	},
+  },
 
 
   // ipfs, fleek; from Jolly Roger
@@ -86,9 +91,9 @@ const config = {
   //       alias: {
   //         // these are the aliases and paths to them
   //         '@lib': path.resolve('./src/lib'),
-  //         // '@plasmid': path.resolve('./src/plasmid'), // local linked
-  //         '@plasmid': path.resolve('./node_modules/plasmid'), // git linked
-  //         '@modules': path.resolve('./node_modules'),
+  //         // '$plasmid': path.resolve('./src/plasmid'), // local linked
+  //         '$plasmid': path.resolve('./node_modules/plasmid'), // git linked
+  //         '$modules': path.resolve('./node_modules'),
   //       }
   //     }
   //   }

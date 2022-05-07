@@ -1,6 +1,6 @@
 
 
-import { addRecord } from '@plasmid/utils/airfetch.js'
+import { addRecord } from '$plasmid/utils/airfetch.js'
 
 
 // takes a {url, tableName, fieldName} object and attempts to insert that into an airtable location

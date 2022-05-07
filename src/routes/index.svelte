@@ -4,7 +4,7 @@
 
 <script>
 	import Counter from '$lib/Counter.svelte'
-  import Hooray from '@plasmid/components/Hooray.svelte'
+  import Hooray from '$plasmid/components/Hooray.svelte'
   
 	import { onMount } from "svelte";
 	import { browser } from '$app/env';
