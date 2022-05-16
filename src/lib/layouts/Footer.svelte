@@ -14,6 +14,8 @@
       <a class="decoration-transparent hover:fill-_hover" href='/'>
         <img src={logo} alt="SvelteKit" />
       </a>
+
+      <div>© 2012 - { new Date().getFullYear() } Starter Kit</div>
       </div>
     </div>
 

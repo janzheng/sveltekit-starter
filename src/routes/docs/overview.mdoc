@@ -1,0 +1,44 @@
+---
+{
+"title": "Dynamic Overview Page"
+}
+---
+
+# {% $markdoc.frontmatter.title %} {% #overview %}
+
+
+Why doesn't the site upload as I change this? It does just really slowly...
+
+
+~~~javascript
+
+Some fenced code
+
+~~~
+
+
+Markdoc is a Markdown-based syntax and toolchain for creating custom documentation sites. Stripe created Markdoc to
+power [our public docs](http://stripe.com/docs).
+
+{% callout type="check" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /callout %}
+
+## How is Markdoc different? {% #different %}
+
+Markdoc uses a fully declarative approach to composition and flow control, where other solutions… [Read
+more](/docs/overview).
+
+fruit: {% $fruit %}
+
+### Something {% #something %}
+
+The following is a partial test; it's only a partial and shouldn't be rendered as the tree??
+
+{% partial file="header.md" /%}
+
+[Install Markdoc](/docs/getting-started)
+
+## Next steps {% #next %}
+- [Install Markdoc](/docs/getting-started)
+- [Explore the syntax](/docs/syntax)

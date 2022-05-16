@@ -10,14 +10,14 @@
 </script>
 
 <!-- <header class="menu-desktop hidden sm:block relative max-w-7xl mx-auto max-w-7xl md:flex items-center leading-6"> -->
-<header class="menu-desktop hidden sm:block sm:visible sm:relative _content md:flex items-center leading-6">
+<header class="menu-desktop hidden sm:block sm:visible sm:relative _content md:flex content-center items-center leading-6">
   <div class="p-8 pr-8 md:mr-8 border-r border-r-white border-r-half">
     <a sveltekit:prefetch class="decoration-transparent hover:fill-_hover" href='/'>
-      <img src={logo} alt="SvelteKit" />
+      <img src={logo} alt="SvelteKit" width="80" />
     </a>
   </div>
 
-  <nav class="menu-items relative md:flex items-center flex-wrap md:gap-4 justify-between w-full px-8 md:pl-0 md:pr-8">
+  <nav class="menu-items relative md:flex flex-1 justify-center content-center items-center flex-wrap md:gap-4 justify-between w-full px-8 md:pl-0 md:pr-8">
     <ul class="menu-items-left text-lg md:space-x-4 md:flex flex-row place-content-end pr-8 list-none">
       <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
       <li class:active={$page.url.pathname === '/playground'}><a sveltekit:prefetch href="/playground">Playground</a></li>
