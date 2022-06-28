@@ -21,7 +21,8 @@ export const Store = store.writable({})
 
 // gets the record
 export const _get = (name, table = 'Content') => {
-  return store.get(Store) && store.get(Store)[table] && store.get(Store)[table].find(e => e.fields['Name'] == name)
+  console.log('get', name, store.get(Store), store.get(Store)[table] )
+  return store.get(Store) && store.get(Store)[table] && store.get(Store)[table].find(e => e['Name'] == name)
 }
 
 // shortcut: Content Table > Content Field

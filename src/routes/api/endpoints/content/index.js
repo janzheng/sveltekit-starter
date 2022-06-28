@@ -12,13 +12,14 @@ import { getSiteContent, flattenTable } from '$plasmid/utils/airfetch'
 
 
 // export const get = getSiteContent // return json from content
-export async function get({params}) {
+export async function get({ params }) {
   let content
   content = await getSiteContent()
-  return { body: flattenTable(content.body.Content) }
+  // console.log(content)
+  return { body: { Content: flattenTable(content.body.Content) } }
   // return { body: {"hello":"world" } }
   // return {props: await getSiteContent()}
-} 
+}
 // endpoints need {props: ...} for svelte page props to read; and {body: ...} as json data
 
 

@@ -13,6 +13,8 @@ config(); // https://github.com/sveltejs/sapper/issues/122
 // add your Project Key
 export const _deta = Deta(process.env['DETA_KEY']);
 // export const _deta = Deta(processs && process.env.DETA_KEY || "project key");
+export const drive = _deta.Drive("uploads");
+export const db = _deta.Base('testDB');  // access your DB
 
 
 
@@ -25,13 +27,11 @@ export const _deta = Deta(process.env['DETA_KEY']);
 // 
 
 // name your Drive
-export const drive = _deta.Drive("testImages");
 // await drive.put("svelte-welcome.png", { path: "/svelte-welcome.png" });
 
 // 
 // Base — like a simple JSON database
 // 
-export const db = _deta.Base('testDB');  // access your DB
 
 // add your Project Key
 /*

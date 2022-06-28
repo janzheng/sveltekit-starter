@@ -1,14 +1,12 @@
 <!-- src/routes/blog/index.svelte -->
 <script context="module">
+import {toc} from './toc'
 export const load = async ({ fetch }) => {
-  const docs = await fetch('/api/endpoints/notionmd?id=7bfd7ca39fce47cea724b7beb09ab33f')
+  const docs = await fetch('/api/endpoints/notionmd?id=0e2dff283b074121b001da17a469963f')
   const json = await docs.json()
 
-  // content pages for toc
-  let toc = []
-
+  console.log('???', json, docs)
   let doc = json ? json.markdown : ``
-
 
   return {
     props: {
@@ -24,7 +22,7 @@ export const load = async ({ fetch }) => {
 <script>
   import DocShell from '$lib/components/docs/DocShell.svelte'
 
-  export let doc, toc, docs
+  export let doc
 </script>
 
 <DocShell {toc} {doc} />

@@ -10,13 +10,19 @@ import remarkAttr from 'remark-attr'
 import rehypeSlug from 'rehype-slug'
 // import autoprefixer from 'autoprefixer'
 
+import preprocessMarkdoc from 'svelte-markdoc'
+import markdocConfig from './markdoc.config.js'
+
+
 import { config as dotenvconf } from "dotenv"
 dotenvconf()
 console.log('local::', process.env.USE_LOCAL)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+  extensions: ['.svelte', '.md', '.markdoc'],
   preprocess: [
+    preprocessMarkdoc(markdocConfig),
     preprocess(),
     mdsvex({
       extensions: ['.md'],
@@ -32,7 +38,6 @@ const config = {
       ]
     }),
   ],
-  extensions: ['.svelte', '.md'],
 
 
   // vercel; regular deployment
