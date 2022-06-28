@@ -68,11 +68,9 @@ const config = {
     vite: {
       resolve: {
         alias: {
-          // these are the aliases and paths to them
-          $lib: path.resolve('./src/lib'),
-          '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
+          // '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
           // '$plasmid': path.resolve('./src/plasmid'), // local linked
-          // $plasmid: path.resolve('./node_modules/plasmid'), // git linked
+          $plasmid: path.resolve('./node_modules/plasmid'), // git linked
           $modules: path.resolve('./node_modules'),
         }
       },

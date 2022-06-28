@@ -12,7 +12,6 @@ config(); // https://github.com/sveltejs/sapper/issues/122
 
 // add your Project Key
 const _deta = Deta(process.env['DETA_KEY']);
-// const _deta = Deta('b0mp9xi4_dwrRQE6DHrWTE6x7UEzmgLHnUFxibmPa');
 const drive = _deta.Drive("uploads");
 
 const apiEditorKey = process.env.AIRTABLE_PRIVATE_API
