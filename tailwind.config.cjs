@@ -86,10 +86,10 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('tailwindcss/nesting'),
+    require('@tailwindcss/forms'),
     require('tw-elements/dist/plugin'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('tailwindcss/nesting'),
     plugin(function ({ addBase }) {
       addBase({
         '@font-face': {

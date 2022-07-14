@@ -15,7 +15,7 @@
 
 
 <script>
-	import { Store as Content } from "./api/endpoints/content/store.js"
+	import { Store as Content } from "$plasmid/modules/content/store.js"
 
   export let content
 
@@ -27,6 +27,6 @@
 
 <div class="Home _content ">
 
-  <h1>oop</h1>
+  <h1>Check the logs for how the content store works</h1>
 
 </div>

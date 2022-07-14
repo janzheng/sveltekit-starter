@@ -33,6 +33,8 @@
     </picture>
   </div>
 
-	<Counter />
+  <div class="w-1/3 mx-auto">
+    <Counter />
+  </div>
 
 </section>

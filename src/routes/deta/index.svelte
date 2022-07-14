@@ -3,7 +3,7 @@
 
 	// see https://kit.svelte.dev/docs#loading
 	export const load = async ({ fetch }) => {
-		const res = await fetch('/deta/api');
+		const res = await fetch('/deta/example-api');
 
 		if (res.ok) {
 			const items = await res.json();
@@ -69,31 +69,31 @@
 
   console.log('items ::', items)
 
-  export const load = async () => {
-    // const res = await fetch('/deta/api')
-    try {
-      const res = await fetch(`/deta/api`, {
-        // method: 'POST',
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          text: "hello!"
-        })
-      });
+  // export const load = async () => {
+  //   // const res = await fetch('/deta/api')
+  //   try {
+  //     const res = await fetch(`/deta/example-api`, {
+  //       // method: 'POST',
+  //       method: 'POST',
+  //       headers: {
+  //         'content-type': 'application/json'
+  //       },
+  //       body: JSON.stringify({
+  //         text: "hello!"
+  //       })
+  //     });
 
-      // if (res.ok) {
-      //   const result = await res.json();
-      //   console.log('result?!?!?!:', result)
-      // }
-      // console.log('res:', res)
+  //     // if (res.ok) {
+  //     //   const result = await res.json();
+  //     //   console.log('result?!?!?!:', result)
+  //     // }
+  //     // console.log('res:', res)
 
-    } catch (e) {
-      console.log('error:', e)
-    }
+  //   } catch (e) {
+  //     console.log('error:', e)
+  //   }
 
-  };
+  // };
 
   // if(browser)
   //   load()

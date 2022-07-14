@@ -10,6 +10,7 @@
 */
 
 
+
 // @import '@fontsource/inter';
 @import '@fontsource/inter/300';
 @import '@fontsource/inter/400';
@@ -21,35 +22,38 @@
 @tailwind utilities;
 
 
+// 
+//    MAIN PROJECT THEMES / STYLES
+// 
+@import './lib/themes/baseline';
 
-// @import './lib/themes/plasmid';
-// @import './lib/themes/sveltekit';
-
+// Additional project styling
+@import "$plasmid/themes/tw";
 
 // include coeur templates if needed; treated as a separate theme
 // @import './lib/themes/coeur';
+// @import './lib/themes/elements';
 
-@import './lib/themes/elements';
 
-@layer base {
-  ._content {
-    @apply relative max-w-7xl mx-auto p-4 w-full h-full
-  }
-}
+
+
+
 
 
 
 
 /* 
 
-
-  Typography
-
+  Base themes
 
 */
-/* sets base font size for tw */
-html {
-  font-size: 1rem
+
+// notion overrides
+// :root {
+//   --bs-font-sans-serif: Inter, sans-serif;
+// }
+.notion {
+  font-family: Inter, sans-serif !important;
 }
 
 .headline {
@@ -57,30 +61,52 @@ html {
   text-rendering: geometricprecision;
 }
 
+// for narrative pages / longform
+.Narrative {
+  img {
+    @apply rounded-md;
+  }
+}
+
 h1 {
-  @apply text-5xl leading-tight lg:text-6xl lg:leading-tight pb-8
+  @apply text-3xl leading-tight lg:text-3xl lg:leading-tight pb-8 font-semibold
 }
   h1.article-title  {
     @apply text-6xl md:text-5xl font-display leading-tight pb-8
   }
 h2 {
-  @apply text-5xl md:text-4xl pb-6
-}
-  *>h1,*>h2,*>h3,*>h4,*>h5,*>h6 { 
-    @apply pt-12
+  @apply text-2xl md:text-2xl pb-6;
+
+  &.--extra {
+    @apply text-4xl pb-2 tracking-tight;
   }
 
+  &~h3 {
+    padding-top: 0;
+  }
+}
+  *>h1,*>h2,*>h3,*>h5,*>h6 { 
+    @apply pt-12
+  }
 h3 {
-  @apply text-4xl md:text-3xl  pb-6
+  @apply text-xl  pb-6
 }
 h4 {
-  @apply text-2xl pb-4
+  @apply text-lg pb-4
 }
 h5 {
-  @apply font-bold pb-4
+  @apply font-bold pb-4;
 }
+h6 {
+  @apply text-xs tracking-wide uppercase pb-2;
+}
+
 p {
-  @apply pb-4
+  @apply pb-4;
+}
+
+.text-light {
+  @apply text-slate-600;
 }
 
 a {
@@ -90,21 +116,33 @@ a {
     @apply underline text-blue-800;
   }
 
-.border-r-half {
-  border-right-width: 0.5px
+
+// preloaded global tw styles for airtable/notion classes
+.tw-border-blue-600 {
+  @apply border-blue-600;
 }
-.border-b-half {
-  border-bottom-width: 0.5px
-}
 
 
 
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

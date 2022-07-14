@@ -1,0 +1,58 @@
+{ 
+  "flat": false,
+  "sources": [
+    {
+      "name": "content_table",
+      "notes": "this is the table for notion Content Table",
+      "type": "whimsy",
+      "key": "_id",
+      "inputs": {
+        "url": "https://notion-cloudflare-worker.yawnxyz.workers.dev",
+        "ids": [
+          "/collection/16da4d6070f34f68bcbdc8df251cc639"
+        ]
+      }
+    },
+    {
+      "name": "notion_intro",
+      "type": "whimsy",
+      "key": "_id",
+      "inputs": {
+        "url": "https://notion-cloudflare-worker.yawnxyz.workers.dev",
+        "ids": [
+          "/page/a8307b3892704898b42816e5f86cb349",
+          "/page/7bfd7ca39fce47cea724b7beb09ab33f"
+        ]
+      }
+    },
+    {
+      "name": "approach",
+      "type": "whimsy",
+      "key": "_id",
+      "inputs": {
+        "url": "https://notion-cloudflare-worker.yawnxyz.workers.dev",
+        "ids": [
+          "/page/65ad31b9c77a449393433bc377728f6d"
+        ]
+      }
+    },
+
+    {
+      "name": "airtable_content",
+      "type":"airtable",
+      "key": "_id",
+      "inputs": {
+        "apiKey": "AIRTABLE_PRIVATE_API",
+        "baseId": "AIRTABLE_PRIVATE_BASE",
+        "bases": [
+          {
+            "tables": ["Content"],
+            "options": {
+            }
+          }
+        ]
+      }
+    }
+
+  ]
+}

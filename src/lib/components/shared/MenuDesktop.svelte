@@ -21,7 +21,7 @@
     <ul class="menu-items-left text-lg md:space-x-4 md:flex flex-row place-content-end pr-8 list-none">
       <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
       <li class:active={$page.url.pathname === '/playground'}><a sveltekit:prefetch href="/playground">Playground</a></li>
-      <li class:active={$page.url.pathname === '/upload'}><a sveltekit:prefetch href="/upload">Upload example</a></li>
+      <li class:active={$page.url.pathname === '/deta/upload'}><a sveltekit:prefetch href="/deta/upload">Upload example</a></li>
       <li class:active={$page.url.pathname === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
     </ul>
     <ul class="menu-items-right text-lg md:space-x-4 md:flex flex-row items-baseline place-content-end mt-8 md:mt-0">

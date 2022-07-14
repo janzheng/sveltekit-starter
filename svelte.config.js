@@ -15,15 +15,14 @@ import markdocConfig from './markdoc.config.js'
 
 
 import { config as dotenvconf } from "dotenv"
-dotenvconf()
-console.log('local::', process.env.USE_LOCAL)
+dotenvconf() 
+console.log('Use Local?:', process.env.USE_LOCAL)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.md', '.markdoc'],
   preprocess: [
     preprocessMarkdoc(markdocConfig),
-    preprocess(),
     mdsvex({
       extensions: ['.md'],
       layout: {
@@ -36,6 +35,9 @@ const config = {
       rehypePlugins: [
         rehypeSlug,
       ]
+    }),
+    preprocess({
+      postcss: true,
     }),
   ],
 
@@ -68,9 +70,12 @@ const config = {
     vite: {
       resolve: {
         alias: {
-          // '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
+          // these are the aliases and paths to them
+          // $lib: path.resolve('./src/lib'), // overridden by sveltekit
+          $routes: path.resolve('./src/routes'),
+          '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
           // '$plasmid': path.resolve('./src/plasmid'), // local linked
-          $plasmid: path.resolve('./node_modules/plasmid'), // git linked
+          // $plasmid: path.resolve('./node_modules/plasmid'), // git linked
           $modules: path.resolve('./node_modules'),
         }
       },

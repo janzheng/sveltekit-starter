@@ -1,7 +1,9 @@
 
 /* 
 
-  CONTENT STORE / FRONT-END 
+  Svelte Store for general site content for front-end
+
+  - store Airtable, Grabby, Notion, user profiles, and other copy used for the site
 
 */
 
