@@ -9,7 +9,8 @@ export async function post({ locals, request }) {
 
     console.log('Example POST endpoint:', message, user)
 
-    if(!user) {
+    if (!user) {
+      console.log('No user; unauthorized')
       return {
         status: 403,
         body: "Not logged in"

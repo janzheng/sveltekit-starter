@@ -23,9 +23,7 @@
 	$: console.log('session:', $session, 'data from mock endpoint:', data);
 
 
-  const handler = async () => {
-
-    // move file to Airtable using /deta/airtable endpoint
+  const authHandler = async () => {
     const res = await fetch(
       '/dashboard/dashboard-auth', {
       method: 'POST',
@@ -38,6 +36,7 @@
       console.log('ping:', jsonRes)
     }
   }
+  
 </script>
 
 
@@ -47,7 +46,7 @@
 <div>
   this is the dashboard!
   <div>
-    <button class="Btn-outline my-2" on:click={()=>handler()}>Do something server-side</button>
+    <button class="Btn-outline my-2" on:click={()=>authHandler()}>Do something server-side</button>
   </div>
 </div>
 

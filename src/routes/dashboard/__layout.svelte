@@ -32,13 +32,17 @@
 
 
 <div class="_page">
-  
-  (dashboard layout)
-  <button type="button" on:click={handleLogout}>Logout {user}</button>
 
-  <main class="container">
-    <slot />
-  </main>
+  {#if user}
+    (dashboard layout)
+    <button type="button" on:click={handleLogout}>Logout {user}</button>
+
+    <main class="container">
+      <slot />
+    </main>
+  {/if}
+
+  <!-- not logged in; will redirect; this prevents "null state" page -->
 </div>
 
 

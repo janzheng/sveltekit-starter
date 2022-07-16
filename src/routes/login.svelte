@@ -35,6 +35,10 @@
     Don't have an account? <a href={signupLink}>Create an account</a>
   </div>
   
+
+  <div>
+    <button class="Btn-outline mt-8" on:click={()=>authHandler()}>Do something server-side (unauthorized)</button>
+  </div>
 </div>
 
 
@@ -89,6 +93,21 @@
 			console.error(`Error in handleSubmit on / route: ${error}`);
 		}
 	}
+
+  const authHandler = async () => {
+    const res = await fetch(
+      '/dashboard/dashboard-auth', {
+      method: 'POST',
+      body: JSON.stringify({
+        message: "secret message"
+      })
+    })
+    if(res.ok) {
+      let jsonRes = await res.json()
+      console.log('ping:', jsonRes)
+    }
+  }
+  
 </script>
 
 
