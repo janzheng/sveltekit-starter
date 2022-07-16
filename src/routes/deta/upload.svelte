@@ -1,4 +1,5 @@
-<script context="module">
+<!-- <script context="module">
+  // use session hooks to reveal public env keys instead
 	import { enhance } from '$lib/form';
 
 	// see https://kit.svelte.dev/docs#loading
@@ -13,7 +14,7 @@
 		}
 	}
 
-</script>
+</script> -->
 
 
 
@@ -89,7 +90,15 @@
 </div>
 
 
+
+
+
+
+
+
 <script>
+  
+  import { session } from "$app/stores"; 
   
   import { getFileImagePreview } from '$plasmid/utils/uploads/fileImagePreview' 
   import { getFileHash } from '$plasmid/utils/uploads/fileHash' 
@@ -105,7 +114,8 @@
     status: 'Not started'
   })
 
-  export let files, detaKey, uploadComplete
+  export let files, uploadComplete
+  const DETA_KEY = $session.env['DETA_KEY']
   
   
 
@@ -127,7 +137,7 @@
 
   $: console.log('Upload progress:', $progress)
   async function uploadFileAirtable() {
-    uploadComplete = await uploadFileToDeta(files[0], 'b0mp9xi4', 'uploads', detaKey, progress, fetch)
+    uploadComplete = await uploadFileToDeta(files[0], 'b0mp9xi4', 'uploads', DETA_KEY, progress, fetch)
     console.log('Upload complete!!', uploadComplete)
 
     // move file to Airtable using /deta/airtable endpoint

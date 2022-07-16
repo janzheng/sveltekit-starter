@@ -21,12 +21,35 @@
 
 	export let data;
 	$: console.log('session:', $session, 'data from mock endpoint:', data);
+
+
+  const handler = async () => {
+
+    // move file to Airtable using /deta/airtable endpoint
+    const res = await fetch(
+      '/dashboard/dashboard-auth', {
+      method: 'POST',
+      body: JSON.stringify({
+        message: "secret message"
+      })
+    })
+    if(res.ok) {
+      let jsonRes = await res.json()
+      console.log('ping:', jsonRes)
+    }
+  }
 </script>
 
 
 
-this is the dashboard!
 
-<pre>
-  {JSON.stringify(session,0,2)}
+
+<div>
+  this is the dashboard!
+  <div>
+    <button class="Btn-outline my-2" on:click={()=>handler()}>Do something server-side</button>
+  </div>
+</div>
+
+<pre>{JSON.stringify($session,0,2)}
 </pre>

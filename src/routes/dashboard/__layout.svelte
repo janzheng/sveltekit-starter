@@ -1,11 +1,13 @@
 
 <!-- this is specific to the dashboard folder -->
 <script context="module">
+  import { server } from '$app/env';
+  
 	export function load({ session }) {
-		if (!session.user) {
-      console.error('__layout-dashboard: Not logged in')
+		if (!session.user && server) {
+      console.info('User logged out')
 			return {
-				redirect: '/',
+				redirect: process.env['ACCOUNT_LOGIN_ROUTE'] || '/',
 				status: 302
 			};
 		}
@@ -29,12 +31,16 @@
 
 
 
-(dashboard layout)
-<button type="button" on:click={handleLogout}>Logout {user}</button>
+<div class="_page">
+  
+  (dashboard layout)
+  <button type="button" on:click={handleLogout}>Logout {user}</button>
 
-<main class="container">
-  <slot />
-</main>
+  <main class="container">
+    <slot />
+  </main>
+</div>
+
 
 <style>
 </style>

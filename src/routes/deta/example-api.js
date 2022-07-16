@@ -45,7 +45,7 @@ export const post = async ({request}) => {
     filename: fileref,
   })
 
-  console.log('uplaoded!!')
+  console.log('uploaded!!')
   return {
     body: {
       result: "ok!"

@@ -1,5 +1,7 @@
 
 
+import { userLoginEndpoint } from '$plasmid/modules/pocket/'
+
 function login(email, password) {
   // add logic to authenticate user with external service here
   console.log('login.js', { email, password: !!password });
@@ -15,18 +17,20 @@ export async function post({ locals, request }) {
 
   console.log('logging in with', email, password)
   try {
-    const user = login(email, password);
-    locals.user = user;
+    const userObject = await userLoginEndpoint(email, password);
 
+    locals.user = userObject.user;
     console.log('setting locals:', locals.user)
+
     return {
       status: 200
     };
   } catch (error) {
-    const message = `Error in endpoint /api/login: ${error}`;
+    console.error('Login not completed', error?.response?.data?.message)
+    // const message = `Error in endpoint /api/login: ${error?.data?.message}`;
     return {
       status: 500,
-      body: message
+      body: error?.response?.data
     };
   }
 }

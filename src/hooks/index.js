@@ -31,11 +31,18 @@ const COOKIE_NAME = process.env['ACCOUNT_COOKIE'];
 
 // this data is public; sent to `import { session } from '$app/stores';
 export async function getSession({ locals }) {
+
+  const env = {
+    PDR2_AUTH: process.env['PDR2_AUTH'],
+    DETA_KEY: process.env['DETA_KEY'],
+    PDR2_ENDPOINT: process.env['PDR2_ENDPOINT']
+  }
+
   const user = locals?.user;
   if (user) {
-    return { user };
+    return { env, user };
   }
-  return {};
+  return { env };
 }
 
 export async function handle({ event, resolve }) {
@@ -47,7 +54,7 @@ export async function handle({ event, resolve }) {
   const cookies = cookie.parse(headers.get('cookie') || '');
 
   // before endpoint call
-  locals.user = cookies[COOKIE_NAME];
+  locals.user = cookies[COOKIE_NAME] && JSON.parse(cookies[COOKIE_NAME]);
 
   // endpoint call
   const response = await resolve(event);
@@ -62,7 +69,7 @@ export async function handle({ event, resolve }) {
   const maxAge = 3600 * 24 * 7; // hr > day > week
   const sameSite = 'None'; 
   // change to "None" if you want cross-site login but secure must be true; change to "Strict" if you want same-site
-  const cookieHeader = `${COOKIE_NAME}=${user || ''}; Max-Age=${maxAge}; Path=/; ${secure ? 'Secure;' : ''
+  const cookieHeader = `${COOKIE_NAME}=${JSON.stringify(user) || ''}; Max-Age=${maxAge}; Path=/; ${secure ? 'Secure;' : ''
     } HttpOnly; SameSite=${sameSite}`;
 
     

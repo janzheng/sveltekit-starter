@@ -5,7 +5,6 @@ import preprocess from 'svelte-preprocess'
 import adapter_ipfs from 'sveltejs-adapter-ipfs'
 
 import { mdsvex } from 'mdsvex'
-import path from 'path'
 import remarkAttr from 'remark-attr'
 import rehypeSlug from 'rehype-slug'
 // import autoprefixer from 'autoprefixer'
@@ -16,7 +15,6 @@ import markdocConfig from './markdoc.config.js'
 
 import { config as dotenvconf } from "dotenv"
 dotenvconf() 
-console.log('Use Local?:', process.env.USE_LOCAL)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -65,21 +63,6 @@ const config = {
       allowed: ['POST', 'DELETE', 'PATCH']
     },
 
-    // hydrate the <div id="svelte"> element in src/app.html
-    // target: '#svelte',
-    vite: {
-      resolve: {
-        alias: {
-          // these are the aliases and paths to them
-          // $lib: path.resolve('./src/lib'), // overridden by sveltekit
-          $routes: path.resolve('./src/routes'),
-          '$plasmid': process.env.USE_LOCAL == 'local' ? path.resolve('./src/plasmid') : path.resolve('./node_modules/plasmid'), // dynamic linked
-          // '$plasmid': path.resolve('./src/plasmid'), // local linked
-          // $plasmid: path.resolve('./node_modules/plasmid'), // git linked
-          $modules: path.resolve('./node_modules'),
-        }
-      },
-    }
   },
 
 
