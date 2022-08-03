@@ -13,7 +13,7 @@
 
 </script>
 
-<span class="dropdown relative">
+<span class="dropdown relative pr-2">
   <button
     class:btn={isBtn}
     type="button"

@@ -9,41 +9,6 @@
 
 */
 
-// base sizes
-:root {
-  font-size: 1em; // make base font slightly larger for everything
-  color: #292327; // base text color
-
-  .notion-page {
-    --notion-h1-weight: 500;
-    --notion-h2-weight: 500;
-    --notion-h3-weight: 400;
-
-    --notion-h1: 1.8rem;
-    --notion-h2: 1.5rem;
-    --notion-h3: 1.2rem;
-
-    --notion-p-padding: var(--notion-8px) var(--notion-2px);
-  }
-
-  b {
-    font-weight: 600;
-  }
-
-  // --base: 1.125rem;
-  // --title: 2.7rem;
-  // --h1: 2em;
-  // --h2: 1.74rem;
-  // --h3 : 1.2rem;
-
-  // --notion-base: var(--base) !important;
-  // --notion-title: var(--title) !important;
-  // --notion-h1: var(--h1) !important;
-  // --notion-h2: var(--h2) !important;
-  // --notion-h3 : var(--h3) !important;
-}
-
-
 // @import '@fontsource/inter';
 @import '@fontsource/inter/300';
 @import '@fontsource/inter/400';
@@ -58,6 +23,7 @@
 // 
 //    MAIN PROJECT THEMES / STYLES
 // 
+//    base :root styles are in /baseline
 @import './lib/themes/baseline';
 
 // Additional project styling

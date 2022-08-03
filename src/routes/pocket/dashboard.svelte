@@ -195,22 +195,28 @@
 </script>
 
 
-<style lang="scss">
+
+<style lang="postcss">
   :root {
+    font-size: 0.875rem; // 14 px for components
+
     // --sidebarWidth: 5rem;
     --sidebarWidth: 9rem;
     --dashSidebarWidth: 12rem;
     --sidebarBg: white;
-    --sidebarBorder: #dee3e8;
+    --sidebarBorderColor: #dee3e8;
+    --sidebarBorderWidth: 0px;
+
+    --mainBg: var(--color-slate-50);
   }
 
   .dashboard {
-    @apply bg-slate-50;
+    background-color: var(--mainBg);
   }
 
   .dashboard-sidebar {
     width: var(--sidebarWidth);
-    border-right: var(--sidebarBorder) 1px solid;
+    border-right: var(--sidebarBorderColor) var(--sidebarBorderWidth) solid;
     background-color: var(--sidebarBg);
     @apply py-2 px-2;
 
@@ -238,4 +244,15 @@
 
     }
   }
+
+
+  .dashboard-main {
+
+  }
 </style>
+
+
+
+
+
+

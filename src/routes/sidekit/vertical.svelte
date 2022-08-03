@@ -20,42 +20,28 @@
 
 <header id="navbar" class="p-4">
   <Navbar bind:isMobileNavOpen={isMobileNavOpen}>
-  <!-- <span slot="leftnav">
-    </span> -->
-
-    <!-- <span slot="rightnav">
-      <ul class="navbar-items-right | md:space-x-4 md:flex flex-row place-content-end pr-8 list-none">
-        <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-        <li class:active={$page.url.pathname === '/playground'}><a sveltekit:prefetch href="/playground">Playground</a></li>
-        <li class:active={$page.url.pathname === '/deta/upload'}><a sveltekit:prefetch href="/deta/upload">Upload example</a></li>
-        <li class:active={$page.url.pathname === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-      </ul>
-    </span> -->
   </Navbar>
 </header>
 
-<!-- 
-<div class="">
-  <Subnav></Subnav>
+<div class="mobile sm:hidden">
+  <div
+      id="navbar-menu"
+      class="accordion-collapse collapse px-2 block"
+      class:show={isMobileNavOpen}
+      data-bs-parent="#navbar"
+  >
+    <Sidenav></Sidenav>
+  </div>
 </div>
-<div
-  id="navbar-menu"
-  class="accordion-collapse collapse | sm:hidden"
-  class:show={isMobileNavOpen}
-  data-bs-parent="#navbar"
->
-  <Sidenav show={isMobileNavOpen}></Sidenav>
-</div> -->
 
-
-<div class="dashboard | flex h-screen |">
-  <aside class="dashboard-sidebar | flex flex-col gap-4 min-w-fit">
+<article class="dashboard | flex h-screen |">
+  <aside class="dashboard-sidebar | hidden sm:flex flex-col gap-4 min-w-fit min-w-[150px] ">
     <Sidenav></Sidenav>
   </aside>
   <main class="dashboard-main | flex-1 flex p-2">
-    whee
+    Content here
   </main>
-</div>
+</article>
 
 
 
@@ -67,16 +53,15 @@
     --sidebarWidth: 9rem;
     --dashSidebarWidth: 12rem;
     --sidebarBg: white;
-    --sidebarBorder: #dee3e8;
+    --sidebarBorderColor: #dee3e8;
+    --sidebarBorderWidth: 0px;
+
+    --mainBg: var(--color-slate-50);
   }
 
-  .dashboard {
-    @apply bg-slate-50;
-  }
-
-  .dashboard-sidebar {
+  aside {
     width: var(--sidebarWidth);
-    border-right: var(--sidebarBorder) 1px solid;
+    border-right: var(--sidebarBorderColor) var(--sidebarBorderWidth) solid;
     background-color: var(--sidebarBg);
     @apply py-2 px-2;
 
@@ -92,18 +77,17 @@
     }
   }
 
-  .dashboard-main-sidebar {
-    width: var(--dashSidebarWidth);
-    border-right: var(--sidebarBorder) 1px solid;
-    background-color: var(--sidebarBg);
-
-    @apply p-4 h-full;
-
-    .dashboard-main-sidebar-icon {
-      @apply rounded-md hover:bg-slate-100 ease-in-out px-2;
-
-    }
+  main {
+    @apply rounded-md border border-transparent;
+    background-color: var(--mainBg);
   }
+    main.sidebar {
+      width: var(--dashSidebarWidth);
+      border-right: var(--sidebarBorder) 1px solid;
+      background-color: var(--sidebarBg);
+      @apply p-4 h-full;
+    }
+
 </style>
 
 

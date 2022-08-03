@@ -1,7 +1,5 @@
 
 <script>
-  import { prefetch, prefetchRoutes } from '$app/navigation'
-	import { page } from '$app/stores';
 	import { onMount } from "svelte";
 	import { browser } from '$app/env';
 
