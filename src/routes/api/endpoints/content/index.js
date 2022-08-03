@@ -10,4 +10,4 @@ import { getFlatSiteContent } from '$plasmid/utils/airfetch'
 
 */
 
-export const get = getFlatSiteContent
+export const GET = getFlatSiteContent

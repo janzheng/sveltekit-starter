@@ -96,27 +96,4 @@
 
 
 
-  // async function uploadFileAirtable() {
-  //   uploadComplete = await uploadFileToDeta(files[0], 'b0mp9xi4', 'uploads', detaKey, progress, fetch)
-  //   console.log('Upload complete!!', uploadComplete)
-
-  //   // move file to Airtable using /deta/airtable endpoint
-  //   const res = await fetch(
-  //     '/deta/airtable', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       filename: uploadComplete.name,
-  //       path: '/deta/uploads/',
-  //       tableName: 'StarterKit',
-  //       fieldName: 'Attachments'
-  //     })
-  //   })
-
-  //   if(res.ok) {
-  //     const resJson = await res.json()
-  //     console.log('Uploaded to Airtable:', resJson)
-  //   } 
-  // }
-
-
 </script>

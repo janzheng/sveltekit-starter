@@ -1,6 +1,7 @@
 <!-- src/routes/blog/index.svelte -->
 <script context="module">
 import {toc} from './toc'
+
 export const load = async ({ fetch, params }) => {
   const slug = params.slug
 
@@ -29,13 +30,13 @@ export const load = async ({ fetch, params }) => {
 <script>
   import DocShell from '$lib/components/docs/DocShell.svelte'
 
-  export let posts, doc, slug
+  export let doc
 </script>
 
+
+
 {#if doc}
-
   <DocShell {toc} {doc} />
-
 {:else}
   <h2>No doc found</h2>
 {/if}

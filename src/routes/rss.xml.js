@@ -2,7 +2,7 @@ const siteURL = 'https://your-domain.tld'
 const siteTitle = 'Your site title here'
 const siteDescription = 'Your site description here'
 
-export const get = async () => {
+export const GET = async () => {
   const posts = await Promise.all(
     Object.entries(import.meta.glob('./blog/*.md')).map(async ([path, resolver]) => {
       const { metadata } = await resolver()

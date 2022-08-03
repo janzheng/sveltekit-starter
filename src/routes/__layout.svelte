@@ -23,18 +23,20 @@
 
 <Head />
 
-<Header />
-
 <!-- <main>
 	<slot />
 </main> -->
 
-
 {#key currentRoute}
-  <main in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
-    <slot />
-  </main>
+  {#if !currentRoute.includes('sidekit')}
+    <Header />
+    <main in:fade={{ duration: 150, delay: 150 }} out:fade={{ duration: 150 }}>
+      <slot />
+    </main>
+    <Footer />
+  {:else}
+    <slot></slot>
+  {/if}
 {/key}
 
 
-<Footer />

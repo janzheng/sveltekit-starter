@@ -13,7 +13,7 @@ function getFormBody(body) {
 }
 
 // handles action="/api/form"
-// export const post = async ({params, request}) => {
+// export const POST = async ({params, request}) => {
 //   let formData = await request.formData()
 //   let form = getFormBody(formData)
 
@@ -25,7 +25,7 @@ function getFormBody(body) {
 
 
 // handles JSON Post endpoints
-export const post = async ({ params, request }) => {
+export const POST = async ({ params, request }) => {
   let form = await request.json()
   console.log('form:', form)
   return {

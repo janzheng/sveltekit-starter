@@ -7,7 +7,7 @@ import { getDrive, getBase } from '$plasmid/utils/deta/deta';
 // 
 
 // GET /deta
-export const get = async () => {
+export const GET = async () => {
   let res = await getBase().fetch();
   let allItems = res.items;
 
@@ -24,7 +24,7 @@ export const get = async () => {
 
 
 // POST /deta example
-export const post = async ({request}) => {
+export const POST = async ({request}) => {
 
   const form = await request.formData();
   const file = form.get('file')

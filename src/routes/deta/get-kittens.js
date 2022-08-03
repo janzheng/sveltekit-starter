@@ -14,4 +14,4 @@ import { _get } from '$plasmid/utils/deta/kittens';
 
 
 // Expose the deta key on purpose
-export const get = _get
+export const GET = _get

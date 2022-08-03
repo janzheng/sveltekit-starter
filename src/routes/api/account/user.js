@@ -28,7 +28,7 @@ gets pinged by login.svelte page route:
 
 
 */
-export function get() {
+export function GET() {
   return {
     status: 200
   };

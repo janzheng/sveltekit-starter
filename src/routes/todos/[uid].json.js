@@ -1,7 +1,7 @@
 // import { api } from './_api';
 
 // // PATCH /todos/:uid.json
-// export const patch = async (request) => {
+// export const PATCH = async (request) => {
 
 // 	return api(request, `todos/${request.locals.userid}/${request.params.uid}`, {
 // 		text: request.body.get('text'),

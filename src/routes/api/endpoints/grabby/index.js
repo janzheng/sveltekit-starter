@@ -13,12 +13,12 @@ import data from '$lib/data/grabbydata.json'
 import grabby from '$lib/data/grabby.json'
 
 import { getGrabby } from '$plasmid/utils/grabby'
-export const get = getGrabby(data, grabby)
+export const GET = getGrabby(data, grabby)
 
 
 
-// export const get = getSiteContent // return json from content
-// export async function get({url}) {
+// export const GET = getSiteContent // return json from content
+// export async function GET({url}) {
 //   let id = url.searchParams.get('id')
 //   if (data && id && data[id] ) {
 //     return { body: data[id] }

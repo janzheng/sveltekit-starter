@@ -1,0 +1,314 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Phage Calendar
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-CALDESC:This is a shared calendar for phage-related events! 
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20220831
+DTEND;VALUE=DATE:20220901
+DTSTAMP:20220728T103556Z
+UID:4423c6hr8ta3i2k6gl5g5vjb4g@google.com
+CREATED:20220726T212825Z
+DESCRIPTION:From the <a href="https://jgi.doe.gov/events/vega/"><u>Website<
+ /u></a>:&nbsp\;<br><p>The VEGA 2022 symposium aims to bring together a “vir
+ al ecogenomics” community to foster discussion on how to best capture and c
+ haracterize uncultivated viruses\, understand the role of viruses in natura
+ l ecosystems\, and functionally explore viral genetic diversity toward inno
+ vative biotechnological and industrial applications. This 2022 edition will
+  focus in particular on experimental innovations\, computational advances\,
+  and other technological developments that will enable researchers to funct
+ ionally characterize novel viral diversity and investigate virus-virus and 
+ virus-host interactions in nature. The symposium will also include organize
+ d discussion sessions to gather input from the community on the most pressi
+ ng challenges faced by researchers in the viral ecogenomics fields.</p><p>P
+ articipants will notably be invited to open discussions designed to shape t
+ he future design of&nbsp\;<a href="https://img.jgi.doe.gov/vr/"><u><u>IMG/V
+ R</u></u></a>&nbsp\;(the database of uncultivated viral genomes) to maximiz
+ e its usefulness for the different actors in the field (i.e. gene-centric e
+ xperimental approaches\, ecosystem models\, host-based evolutionary analysi
+ s\, etc)\, as well as frame a potential viral-focused calls for projects at
+  the JGI.</p>
+LAST-MODIFIED:20220726T212919Z
+LOCATION:https://docs.google.com/forms/d/e/1FAIpQLSdF-B8ljWnWS9RhwhjEEZ7cnl
+ c7GzeUS3q8rwOaiSRwFLO2SA/viewform
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Deadline to Register for 2022 Viral EcoGenomics & Applications (EGA
+ ) Symposium
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20221007T150000Z
+DTEND:20221007T223000Z
+DTSTAMP:20220728T103556Z
+UID:1kgafncspedp54614l9iqd8pp4@google.com
+CREATED:20220726T212629Z
+DESCRIPTION:From the <a href="https://jgi.doe.gov/events/vega/"><u>Website<
+ /u></a>:&nbsp\;<br><p>The VEGA 2022 symposium aims to bring together a “vir
+ al ecogenomics” community to foster discussion on how to best capture and c
+ haracterize uncultivated viruses\, understand the role of viruses in natura
+ l ecosystems\, and functionally explore viral genetic diversity toward inno
+ vative biotechnological and industrial applications. This 2022 edition will
+  focus in particular on experimental innovations\, computational advances\,
+  and other technological developments that will enable researchers to funct
+ ionally characterize novel viral diversity and investigate virus-virus and 
+ virus-host interactions in nature. The symposium will also include organize
+ d discussion sessions to gather input from the community on the most pressi
+ ng challenges faced by researchers in the viral ecogenomics fields.</p><p>P
+ articipants will notably be invited to open discussions designed to shape t
+ he future design of&nbsp\;<a href="https://img.jgi.doe.gov/vr/"><u><u>IMG/V
+ R</u></u></a>&nbsp\;(the database of uncultivated viral genomes) to maximiz
+ e its usefulness for the different actors in the field (i.e. gene-centric e
+ xperimental approaches\, ecosystem models\, host-based evolutionary analysi
+ s\, etc)\, as well as frame a potential viral-focused calls for projects at
+  the JGI.</p>
+LAST-MODIFIED:20220726T212726Z
+LOCATION:Lawrence Berkeley National Laboratory\, 1 Cyclotron Rd\, Berkeley\
+ , CA 94720\, USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Day 2 2022 Viral EcoGenomics & Applications (EGA) Symposium 
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20221006T150000Z
+DTEND:20221007T010000Z
+DTSTAMP:20220728T103556Z
+UID:11jkjs4d4ugmnlthagqh3lio40@google.com
+CREATED:20220726T212524Z
+DESCRIPTION:From the <a href="https://jgi.doe.gov/events/vega/" id="ow1842"
+  __is_owner="true">Website</a>:&nbsp\;<br><p>The VEGA 2022 symposium aims t
+ o bring together a “viral ecogenomics” community to foster discussion on ho
+ w to best capture and characterize uncultivated viruses\, understand the ro
+ le of viruses in natural ecosystems\, and functionally explore viral geneti
+ c diversity toward innovative biotechnological and industrial applications.
+  This 2022 edition will focus in particular on experimental innovations\, c
+ omputational advances\, and other technological developments that will enab
+ le researchers to functionally characterize novel viral diversity and inves
+ tigate virus-virus and virus-host interactions in nature. The symposium wil
+ l also include organized discussion sessions to gather input from the commu
+ nity on the most pressing challenges faced by researchers in the viral ecog
+ enomics fields.</p><p>Participants will notably be invited to open discussi
+ ons designed to shape the future design of&nbsp\;<a href="https://img.jgi.d
+ oe.gov/vr/"><u>IMG/VR</u></a>&nbsp\;(the database of uncultivated viral gen
+ omes) to maximize its usefulness for the different actors in the field (i.e
+ . gene-centric experimental approaches\, ecosystem models\, host-based evol
+ utionary analysis\, etc)\, as well as frame a potential viral-focused calls
+  for projects at the JGI.</p>
+LAST-MODIFIED:20220726T212720Z
+LOCATION:Lawrence Berkeley National Laboratory\, 1 Cyclotron Rd\, Berkeley\
+ , CA 94720\, USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Day 1 2022 Viral EcoGenomics & Applications (EGA) Symposium 
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20220801
+DTEND;VALUE=DATE:20220806
+DTSTAMP:20220728T103556Z
+UID:1c5sl2hkqnh160vc60ms52o5pf@google.com
+CREATED:20220719T191546Z
+DESCRIPTION:From <a href="https://conferences.union.wisc.edu/phages/" id="o
+ w8202" __is_owner="true">website</a>:&nbsp\;<br><br><h3><strong><b>Scientif
+ ic Topics</b></strong></h3><p>Phage and CRISPR<br>Cellular and Membrane Bio
+ logy<br>Signaling and Stress Responses<br>Microbial Communities<br>Host-Mic
+ robe Interactions<br>Regulation of Gene Expression<br>Bacterial Systems Bio
+ logy<br>Genome Evolution and Adaption</p>
+LAST-MODIFIED:20220719T191546Z
+LOCATION:University of Wisconsin-Madison\, Madison\, WI\, USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:2022 Molecular Genetics of Bacteria and Phages Meeting
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20221007T070000Z
+DTEND:20221007T153000Z
+DTSTAMP:20220728T103556Z
+UID:66bp4gancgfsl8rpp0fq5rrivv@google.com
+CREATED:20220719T191038Z
+DESCRIPTION:From the <a href="https://www.escmid.org/fileadmin/src/media/PD
+ Fs/1Dates_Events/event_flyers/ESGNI_Course22_web.pdf"><u>ESCMID website</u>
+ </a>:&nbsp\;<br><br><p>Infection prevention and control (IPC) aims to preve
+ nt infections occurring due to healthcare interventions or in healthcare in
+ stitutions. IPC is as old as medicine but nowadays a rapidly expanding fiel
+ d not only due to the COVID-19 pandemic. This course aims to confer evidenc
+ e\, knowledge and professional experience to all professionals working in i
+ nfection prevention and control and ID. The 20 minutes talks will invite 10
+  minutes discussion. All interested in infection prevention and control are
+  welcome to experience new sights in HAI and their control and treatment. T
+ he course participants are invited to bring their IPC challenges in their i
+ nstitution which will be discussed and solved in 2 hands-on sessions.</p>
+LAST-MODIFIED:20220719T191136Z
+LOCATION:https://www.escmid.org/fileadmin/src/media/PDFs/1Dates_Events/even
+ t_flyers/ESGNI_Course22_web.pdf
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Day 2 ESCMID Online Course: Health-care associated infections and t
+ heir prevention and control 
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20221007T060000Z
+DTEND:20221007T154500Z
+DTSTAMP:20220728T103556Z
+UID:5bqdvappqdhl8dhplrmvi63ppj@google.com
+CREATED:20220719T190955Z
+DESCRIPTION:From the <a href="https://www.escmid.org/fileadmin/src/media/PD
+ Fs/1Dates_Events/event_flyers/ESGNI_Course22_web.pdf"><u>ESCMID website</u>
+ </a>:&nbsp\;<br><br><p>Infection prevention and control (IPC) aims to preve
+ nt infections occurring due to healthcare interventions or in healthcare in
+ stitutions. IPC is as old as medicine but nowadays a rapidly expanding fiel
+ d not only due to the COVID-19 pandemic. This course aims to confer evidenc
+ e\, knowledge and professional experience to all professionals working in i
+ nfection prevention and control and ID. The 20 minutes talks will invite 10
+  minutes discussion. All interested in infection prevention and control are
+  welcome to experience new sights in HAI and their control and treatment. T
+ he course participants are invited to bring their IPC challenges in their i
+ nstitution which will be discussed and solved in 2 hands-on sessions.</p>
+LAST-MODIFIED:20220719T191131Z
+LOCATION:https://www.escmid.org/fileadmin/src/media/PDFs/1Dates_Events/even
+ t_flyers/ESGNI_Course22_web.pdf
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Day 1 ESCMID Online Course: Health-care associated infections and t
+ heir prevention and control 
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20221002
+DTEND;VALUE=DATE:20221003
+DTSTAMP:20220728T103556Z
+UID:4pj5mkkrf2nq561vdj48bkgret@google.com
+CREATED:20220719T190740Z
+DESCRIPTION:From the <a href="https://www.escmid.org/fileadmin/src/media/PD
+ Fs/1Dates_Events/event_flyers/ESGNI_Course22_web.pdf" id="ow6120" __is_owne
+ r="true">ESCMID website</a>:&nbsp\;<br><br><p>Infection prevention and cont
+ rol (IPC) aims to prevent infections occurring due to healthcare interventi
+ ons or in healthcare institutions. IPC is as old as medicine but nowadays a
+  rapidly expanding field not only due to the COVID-19 pandemic. This course
+  aims to confer evidence\, knowledge and professional experience to all pro
+ fessionals working in infection prevention and control and ID. The 20 minut
+ es talks will invite 10 minutes discussion. All interested in infection pre
+ vention and control are welcome to experience new sights in HAI and their c
+ ontrol and treatment. The course participants are invited to bring their IP
+ C challenges in their institution which will be discussed and solved in 2 h
+ ands-on sessions.</p>
+LAST-MODIFIED:20220719T190740Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Deadline to Register for ESCMID Online Course: Health-care associat
+ ed infections and their prevention and control 
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20220812
+DTEND;VALUE=DATE:20220813
+DTSTAMP:20220728T103556Z
+UID:1nv9rpe1qf450dvl8u365rva5l@google.com
+CREATED:20220719T185715Z
+DESCRIPTION:<br>From the&nbsp\;<a href="https://event.fourwaves.com/phage20
+ 22/pages"><u>Phage Canada Website</u></a>:&nbsp\;<br><br>The Phage Canada 2
+ 022 Virtual Symposia aims to bring Canadian researchers together and promot
+ e the exchange of ideas in the exciting field of bacteriophage research. Ou
+ r goal is to provide a forum for students and postdoctoral fellows to prese
+ nt their findings\, and foster interaction between the growing number of Ca
+ nadian academic\, industrial\, and governmental teams with an interest in t
+ he field.
+LAST-MODIFIED:20220719T190329Z
+LOCATION:https://event.fourwaves.com/phage2022/registration
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Deadline to Register for the 2022 Phage Canada Virtual Symposia
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20220819T160000Z
+DTEND:20220819T183000Z
+DTSTAMP:20220728T103556Z
+UID:4gtvc4q7uctek2rk84jidbqcvb@google.com
+CREATED:20220719T190219Z
+DESCRIPTION:<br>From the&nbsp\;<a href="https://event.fourwaves.com/phage20
+ 22/pages"><u>Phage Canada Website</u></a>:&nbsp\;<br><br>The Phage Canada 2
+ 022 Virtual Symposia aims to bring Canadian researchers together and promot
+ e the exchange of ideas in the exciting field of bacteriophage research. Ou
+ r goal is to provide a forum for students and postdoctoral fellows to prese
+ nt their findings\, and foster interaction between the growing number of Ca
+ nadian academic\, industrial\, and governmental teams with an interest in t
+ he field.
+LAST-MODIFIED:20220719T190324Z
+LOCATION:https://event.fourwaves.com/phage2022/pages
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:2022 Phage Canada Virtual Symposia: Career Opportunities in Phage R
+ esearch
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20220818T153000Z
+DTEND:20220818T193000Z
+DTSTAMP:20220728T103556Z
+UID:2p90fphbeu4n9ia0cn6ver1gfj@google.com
+CREATED:20220719T190054Z
+DESCRIPTION:<br>From the&nbsp\;<a href="https://event.fourwaves.com/phage20
+ 22/pages"><u>Phage Canada Website</u></a>:&nbsp\;<br><br>The Phage Canada 2
+ 022 Virtual Symposia aims to bring Canadian researchers together and promot
+ e the exchange of ideas in the exciting field of bacteriophage research. Ou
+ r goal is to provide a forum for students and postdoctoral fellows to prese
+ nt their findings\, and foster interaction between the growing number of Ca
+ nadian academic\, industrial\, and governmental teams with an interest in t
+ he field.
+LAST-MODIFIED:20220719T190319Z
+LOCATION:https://event.fourwaves.com/phage2022/pages
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:2022 Phage Canada Virtual Symposia: Graduate & Post-graduate Resear
+ ch
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20220817T160000Z
+DTEND:20220817T193000Z
+DTSTAMP:20220728T103556Z
+UID:6eqt1v0v9oool7pbn8dr7heq9l@google.com
+CREATED:20220719T185926Z
+DESCRIPTION:From the <a href="https://event.fourwaves.com/phage2022/pages" 
+ id="ow5055" __is_owner="true">Phage Canada Website</a>:&nbsp\;<br><br>The P
+ hage Canada 2022 Virtual Symposia aims to bring Canadian researchers togeth
+ er and promote the exchange of ideas in the exciting field of bacteriophage
+  research. Our goal is to provide a forum for students and postdoctoral fel
+ lows to present their findings\, and foster interaction between the growing
+  number of Canadian academic\, industrial\, and governmental teams with an 
+ interest in the field.
+LAST-MODIFIED:20220719T190314Z
+LOCATION:https://event.fourwaves.com/phage2022/pages
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:2022 Phage Canada Virtual Symposia: Undergraduate Research & Educat
+ ion
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20220730T000000Z
+DTSTAMP:20220728T103556Z
+UID:1ono6ol6u0p03pt8j3jc0s27kp@google.com
+CREATED:20220719T185514Z
+DESCRIPTION:This is the application deadline a new award the NAID has reque
+ sted applications for. 
+LAST-MODIFIED:20220719T185514Z
+LOCATION:https://grants.nih.gov/grants/guide/rfa-files/RFA-AI-22-028.html?u
+ tm_campaign=+51529426&utm_content=&utm_medium=email&utm_source=govdelivery&
+ utm_term=
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Application Due Date for Partnerships for the Development of Novel 
+ Therapeutics to Combat Select Antibiotic Resistant Bacteria and Fungi (R01 
+ Clinical Trial Not Allowed) Award
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

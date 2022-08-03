@@ -46,7 +46,7 @@
       // Match all h1, h2, h3… tags
       if (node.name.match(/h\d/)) {
         const title = node.children[0];
-        console.log('---node name:', node.name, "|||", title, "|||", node.name.match(/h\d/) )
+        // console.log('---node name:', node.name, "|||", title, "|||", node.name.match(/h\d/) )
 
         
         if (typeof title === 'string') { // screws up for headers wrapped in bold/italic

@@ -1,7 +1,7 @@
 import { api } from './_api';
 
 // GET /todos.json
-export const get = async ({locals}) => {
+export const GET = async ({locals}) => {
   const response = await api('get', `todos/${locals.userid}`);
 
 	if (response.status === 404) {
@@ -22,7 +22,7 @@ export const get = async ({locals}) => {
 
 
 // POST /todos.json
-export const post = async ({ request, locals }) => {
+export const POST = async ({ request, locals }) => {
   const form = await request.formData()
 
   console.log('posting::', form.get('text'))
@@ -48,7 +48,7 @@ const redirect = {
 
 
 
-export const patch = async ({ request, locals }) => {
+export const PATCH = async ({ request, locals }) => {
   const form = await request.formData()
 
   console.log('patching::', form.get('uid'), form.get('text'), form.get('done'))

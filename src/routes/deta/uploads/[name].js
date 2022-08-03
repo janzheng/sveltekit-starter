@@ -5,4 +5,4 @@
 
 import { getFile } from '$plasmid/utils/deta/get-file'
 
-export const get = getFile
+export const GET = getFile

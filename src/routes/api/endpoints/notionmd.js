@@ -25,7 +25,7 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 // })();
 
 
-export async function get({ url }) {
+export async function GET({ url }) {
   let id = url.searchParams.get('id')
   if (id) {
     const mdblocks = await n2m.pageToMarkdown(id);

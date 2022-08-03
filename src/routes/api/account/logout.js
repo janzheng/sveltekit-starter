@@ -1,4 +1,4 @@
-export async function get({ locals }) {
+export async function GET({ locals }) {
   console.info('Logging out:', locals.user)
   locals.user = null;
 

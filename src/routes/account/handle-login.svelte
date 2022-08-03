@@ -1,11 +1,11 @@
 
 <!-- goto this route to trigger log in -->
 <script context="module">
-  import { server } from '$app/env';
+  import { browser } from '$app/env';
 
   export async function load({ fetch, session }) {
 		try {
-      if(server) {
+      if(!browser) {
         if (session.user) {
           console.info('Already logged in:', session.user, process.env['ACCOUNT_ROUTE'])
           return {
@@ -23,6 +23,10 @@
           status: 302
         };
       }
+      return {
+        redirect: '/',
+        status: 302
+      };
 		} catch (error) {
 			console.error(`Error in route login: ${error}`);
 		}

@@ -45,37 +45,50 @@ export async function getSession({ locals }) {
   return { env };
 }
 
+
+
+
+
+
 export async function handle({ event, resolve }) {
-  const { locals, request, url } = event;
-  const { headers } = request;
-  const { pathname } = url;
-  const loggingOut = pathname === '/api/account/logout';
 
-  const cookies = cookie.parse(headers.get('cookie') || '');
+  let response
+  
+  try {
+    const { locals, request, url } = event;
+    const { headers } = request;
+    const { pathname } = url;
+    const loggingOut = pathname === '/api/account/logout';
 
-  // before endpoint call
-  locals.user = cookies[COOKIE_NAME] && JSON.parse(cookies[COOKIE_NAME]);
+    const cookies = cookie.parse(headers.get('cookie') || '');
 
-  // endpoint call
-  const response = await resolve(event);
+    // before endpoint call
+    locals.user = cookies[COOKIE_NAME] && JSON.parse(Buffer.from(cookies[COOKIE_NAME], 'base64').toString());
 
-
-
-  // after endpoint call
-  const user = loggingOut ? '' : locals.user;
+    // endpoint call
+    response = await resolve(event);
 
 
-  const secure = true; // process.env.NODE_ENV === 'production';
-  const maxAge = 3600 * 24 * 7; // hr > day > week
-  const sameSite = 'None'; 
-  // change to "None" if you want cross-site login but secure must be true; change to "Strict" if you want same-site
-  const cookieHeader = `${COOKIE_NAME}=${JSON.stringify(user) || ''}; Max-Age=${maxAge}; Path=/; ${secure ? 'Secure;' : ''
-    } HttpOnly; SameSite=${sameSite}`;
 
-    
+    // after endpoint call
+    const user = loggingOut ? '' : locals.user;
 
-  if (user || loggingOut) {
-    response.headers.set('Set-Cookie', cookieHeader);
+
+    const secure = true; // process.env.NODE_ENV === 'production';
+    const maxAge = 3600 * 24 * 7; // hr > day > week
+    const sameSite = 'None'; 
+    // change to "None" if you want cross-site login but secure must be true; change to "Strict" if you want same-site
+    let cookieHeader
+
+    if (user)
+      cookieHeader = `${COOKIE_NAME}=${Buffer.from(JSON.stringify(user)).toString('base64') || ''}; Max-Age=${maxAge}; Path=/; ${secure ? 'Secure;' : ''
+      } HttpOnly; SameSite=${sameSite}`;
+
+    if (user || loggingOut) {
+      response.headers.set('Set-Cookie', cookieHeader);
+    }
+  } catch (e) {
+    // might fail for emoji in profile
   }
 
   return response;

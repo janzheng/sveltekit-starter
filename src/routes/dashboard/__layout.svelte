@@ -1,13 +1,12 @@
 
 <!-- this is specific to the dashboard folder -->
 <script context="module">
-  import { server } from '$app/env';
   
 	export function load({ session }) {
-		if (!session.user && server) {
+		if (!session.user) {
       console.info('User logged out')
 			return {
-				redirect: process.env['ACCOUNT_LOGIN_ROUTE'] || '/',
+				redirect: '/',
 				status: 302
 			};
 		}
@@ -19,6 +18,7 @@
 	import { goto, prefetch } from '$app/navigation';
 	import { session } from '$app/stores';
 
+  let user
 	$: user = $session.user;
 
 	async function handleLogout() {
