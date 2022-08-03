@@ -5,16 +5,13 @@ export const GET = async () => {
 
   const allPosts = await Promise.all(
     iterablePostFiles.map(async ([path, resolver]) => {
-      const data = await resolver()
-      const metadata = data.metadata
+      const { attributes, html } = await resolver()
       const postPath = path.slice(2, -3)
 
-      // console.log('data:::', data.default.render(), metadata)
-
       return {
-        body: data.default.render(),
-        meta: metadata,
+        meta: attributes,
         path: postPath,
+        content: html,
       }
     })
   )
@@ -22,6 +19,7 @@ export const GET = async () => {
   const sortedPosts = allPosts.sort((a, b) => {
     return new Date(b.meta.date) - new Date(a.meta.date)
   })
+
 
   return {
     body: sortedPosts

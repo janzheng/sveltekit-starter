@@ -5,6 +5,7 @@
     const response = await fetch('/api/posts.json')
     const posts = await response.json()
 
+    console.log('??', posts)
     const matchingPosts = posts
       .filter(post => post.meta.slug == slug)
 
@@ -26,6 +27,6 @@
 </script>
 
 
-<div class="_content">
-  {@html post.body.html }
+<div class="_content my-12">
+  {@html post.content }
 </div>

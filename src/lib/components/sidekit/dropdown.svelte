@@ -21,7 +21,7 @@
     data-bs-toggle="dropdown"
     aria-expanded="false"
   >
-    <slot>
+    <slot name="title">
       Dropdown button
     </slot>
     {#if showArrow}

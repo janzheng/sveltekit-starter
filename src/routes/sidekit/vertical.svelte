@@ -64,29 +64,12 @@
     border-right: var(--sidebarBorderColor) var(--sidebarBorderWidth) solid;
     background-color: var(--sidebarBg);
     @apply py-2 px-2;
-
-    .sidebar-icon {
-      @apply rounded-md hover:bg-slate-100 ease-in-out px-1;
-    }
-
-    .--active {
-      @apply rounded-md bg-slate-100;
-      svg {
-        stroke: rgb(59 130 246/var(--tw-bg-opacity)) !important;
-      }
-    }
   }
 
   main {
     @apply rounded-md border border-transparent;
     background-color: var(--mainBg);
   }
-    main.sidebar {
-      width: var(--dashSidebarWidth);
-      border-right: var(--sidebarBorder) 1px solid;
-      background-color: var(--sidebarBg);
-      @apply p-4 h-full;
-    }
 
 </style>
 

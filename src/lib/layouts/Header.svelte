@@ -24,7 +24,7 @@
 </script>
 
 
-<header id="navbar" class="_content-wide">
+<header id="navbar" class="_content-wide pb-0">
   <Navbar bind:isMobileNavOpen={isMobileNavOpen} showBurgers={true} >
   </Navbar>
 </header>

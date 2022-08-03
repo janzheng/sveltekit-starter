@@ -18,7 +18,7 @@ dotenvconf()
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', '.md'],
+  extensions: ['.svelte'], // adding .md here screws up vite meta glob import
   preprocess: [
     // preprocessMarkdoc(markdocConfig), // load usin api instead
     // mdsvex({

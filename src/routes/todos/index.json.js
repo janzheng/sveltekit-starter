@@ -64,7 +64,7 @@ export const PATCH = async ({ request, locals }) => {
 };
 
 
-export const del = async ({ request, locals }) => {
+export const DELETE = async ({ request, locals }) => {
   const form = await request.formData()
 
   console.log('deleting::', form.get('uid'))

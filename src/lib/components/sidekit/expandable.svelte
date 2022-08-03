@@ -50,13 +50,6 @@
 
 <style lang="postcss">
 
-  .sublink {
-    @apply pl-2;
-    border-left-color: var(--color-gray-200);
-    &.active {
-      border-left-color: var(--color-blue-300);
-    }
-  }
   
   .accordion-button {
     box-shadow: inherit !important;

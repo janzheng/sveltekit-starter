@@ -26,6 +26,8 @@
 
 
 // session-based account mgmt: https://rodneylab.com/sveltekit-session-cookies 
+
+import { v4 as uuid } from '@lukeed/uuid';
 import cookie from 'cookie';
 const COOKIE_NAME = process.env['ACCOUNT_COOKIE'];
 
@@ -56,14 +58,35 @@ export async function handle({ event, resolve }) {
   
   try {
     const { locals, request, url } = event;
-    const { headers } = request;
+    let headers = request?.headers;
     const { pathname } = url;
     const loggingOut = pathname === '/api/account/logout';
 
-    const cookies = cookie.parse(headers.get('cookie') || '');
+    const cookies = cookie.parse(headers?.get('cookie') || '');
 
     // before endpoint call
     locals.user = cookies[COOKIE_NAME] && JSON.parse(Buffer.from(cookies[COOKIE_NAME], 'base64').toString());
+
+
+    // 
+    // 
+    // for running example /todos endpoint
+    locals.userid = cookies['userid'] || uuid();
+    if (!cookies.userid) {
+      // if this is the first time the user has visited this app,
+      // set a cookie so that we recognise them when they return
+      response?.headers?.set('set-cookie',
+        cookie.serialize('userid', event.locals.userid, {
+          path: '/',
+          httpOnly: true
+        })
+      )
+    }
+    // 
+    // 
+    // 
+
+
 
     // endpoint call
     response = await resolve(event);
@@ -85,11 +108,14 @@ export async function handle({ event, resolve }) {
       } HttpOnly; SameSite=${sameSite}`;
 
     if (user || loggingOut) {
-      response.headers.set('Set-Cookie', cookieHeader);
+      response?.headers?.set('Set-Cookie', cookieHeader);
     }
   } catch (e) {
     // might fail for emoji in profile
   }
+
+
+
 
   return response;
 }

@@ -55,37 +55,39 @@
     }
   }
 
+  .DocShell {
 
-  nav {
-    /* https://stackoverflow.com/questions/66898327/how-to-keep-footer-from-pushing-up-sticky-sidebar */
-    position: sticky;
-    top: calc(2.5rem + var(--nav-height));
-    max-height: calc(100vh - var(--nav-height) - var(--footer-height));
-    flex: 0 0 240px;
-    overflow-y: auto;
+    nav {
+      /* https://stackoverflow.com/questions/66898327/how-to-keep-footer-from-pushing-up-sticky-sidebar */
+      position: sticky;
+      top: calc(2.5rem + var(--nav-height));
+      max-height: calc(100vh - var(--nav-height) - var(--footer-height));
+      flex: 0 0 240px;
+      overflow-y: auto;
+      
+      align-self: flex-start;
+      @apply px-4;
+    }
     
-    align-self: flex-start;
-    @apply px-4;
-  }
+    h3 {
+      @apply text-lg font-bold mb-1 pt-0 pb-1;
+    }
   
-  h3 {
-    @apply text-lg font-bold mb-1 pt-0 pb-1;
-  }
+    a {
+      @apply no-underline;
+    }
+    ul {
+      @apply mb-2;
+    }
+  
+    li {
+      @apply list-none mx-1 text-base font-normal pb-2;
+    }
+    li a:hover, 
+    li.active > a {
+      @apply underline;
+    }
 
-  a {
-    @apply no-underline;
   }
-  ul {
-    @apply mb-2;
-  }
-
-  li {
-    @apply list-none mx-1 text-base font-normal pb-2;
-  }
-  li a:hover, 
-  li.active > a {
-    @apply underline;
-  }
-
 
 </style>

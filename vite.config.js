@@ -1,12 +1,13 @@
 
 import path from 'path'
 import { sveltekit } from "@sveltejs/kit/vite";
+import { plugin as markdown, Mode } from "vite-plugin-markdown";
 
 console.log('Use Local?:', process.env.USE_LOCAL)
 
 /** @type {import("vite").UserConfig} */
 const config = {
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), markdown({ mode: Mode.HTML })],
   // css: {
   //   preprocessorOptions: {
   //     scss: {

@@ -5,7 +5,7 @@
 
 	import Expandable from '$lib/components/sidekit/expandable.svelte';
 
-  export let show=false
+  // export let show=false
 </script>
 
 <!-- can be used for mobile too, if hooked to show mobile and accordion -->
@@ -60,7 +60,7 @@
 
 
 
-<style lang="postcss">
+<style lang="postcss" global>
   :root {
     --sidenav-logo-height: 2rem;
     --sidenav-active-color: 2rem;
@@ -99,42 +99,11 @@
         border-left-color: var(--color-blue-300);
       }
     }
-  }
 
-  a.btn {
-    @apply text-gray-900 no-underline;
-  }
-
-  .accordion-button {
-    box-shadow: inherit;
-    color: inherit;
-    @apply rounded-md;
-
-    &:after {
-      /* svg arrow */
-
-      /* background-size: 1rem; */
-      content: "";
-      transition: none;
-      display: inline-block;
-      vertical-align: 0.306em;
-      width: 0.5em;
-      height: 0.5em;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
-      margin-right: 0.1em;
-      margin-left: 0.4em;
-      transform: rotate(-45deg);
-      background-image: inherit;
-      top: -1px;
-      position: relative;
+    a.btn {
+      @apply text-gray-900 no-underline;
     }
 
-    &:not(.collapsed):after {
-      transform: rotate(135deg);
-      top: 2px;
-      position: relative;
-    }
   }
   
 
