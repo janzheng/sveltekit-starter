@@ -109,7 +109,7 @@
 
 
 
-<style type="text/scss">
+<style lang="postcss">
 
 
   // .__inline {

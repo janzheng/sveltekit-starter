@@ -3,7 +3,7 @@
   import { prefetch, prefetchRoutes } from '$app/navigation'
 	import { page } from '$app/stores';
 	import { onMount } from "svelte";
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	import Navbar from '$lib/components/sidekit/navbar.svelte';
 	import Subnav from '$lib/components/sidekit/subnav.svelte';

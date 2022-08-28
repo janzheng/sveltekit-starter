@@ -166,7 +166,7 @@
 <script>
 // import { goto } from "@sapper/app";
 import { getContext, onMount, tick, createEventDispatcher } from "svelte";
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 import { fade, fly } from 'svelte/transition';
 import { createForm } from "svelte-forms-lib";
 import * as yup from "yup";
@@ -425,7 +425,7 @@ const resetReset = async () => { // reset the reset mode
 </script>
 
 
-<style type="text/scss" global>
+<style lang="postcss" global>
 
   .Formlet-page-TOC {
     h6 {

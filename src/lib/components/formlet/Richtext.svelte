@@ -69,7 +69,7 @@
 
 
 <script>
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import { onMount, tick } from "svelte";
   import {marked} from 'marked';
   import Tiptap from '../tiptap/Tiptap.svelte'

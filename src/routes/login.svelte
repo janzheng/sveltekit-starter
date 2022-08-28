@@ -22,7 +22,7 @@
 <script>
   
   import Login from '$plasmid/modules/pocket/components/Login.svelte'
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
   import { userLogin } from '$plasmid/modules/pocket/'
   import { session } from '$app/stores';
 

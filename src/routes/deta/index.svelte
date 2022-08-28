@@ -64,7 +64,7 @@
 <script>
 
 
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 	export let items;
 
   console.log('items ::', items)

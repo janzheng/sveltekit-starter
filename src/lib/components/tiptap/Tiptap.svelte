@@ -100,7 +100,7 @@
   </div>
 {/if} -->
 
-<style type="text/scss" global>
+<style lang="postcss" global>
 	/* .wrapper {
     border: 1px solid #ccc;
 		max-height: 200px;

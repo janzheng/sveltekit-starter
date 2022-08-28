@@ -12,8 +12,8 @@
 import data from '$lib/data/grabbydata.json'
 import grabby from '$lib/data/grabby.json'
 
-import { getGrabby } from '$plasmid/utils/grabby'
-export const GET = getGrabby(data, grabby)
+import { getGrabbyMulti } from '$plasmid/utils/grabby'
+export const GET = getGrabbyMulti(data, grabby)
 
 
 

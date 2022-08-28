@@ -33,7 +33,7 @@
 </script>
 
 
-<style type="text/scss">
+<style lang="postcss">
 </style>
 
 

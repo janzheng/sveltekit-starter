@@ -2,7 +2,7 @@
 
 <!-- goto this route to trigger log out -->
 <script context="module">
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   
 	export const load = async () => {
 		try {

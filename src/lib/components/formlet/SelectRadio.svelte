@@ -240,7 +240,7 @@
   };
 </script>
 
-<style global type="text/scss">
+<style global lang="postcss">
   // inherited from Select object
   .selectRadio-clearSelect {
     position: absolute;

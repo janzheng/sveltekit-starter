@@ -26,7 +26,7 @@
 
 
     <div class="footer-title">
-      <div class="p-2 pr-4 border-r border-r-white border-r-half | flex flex-row items-center gap-4">
+      <div class="p-2 border-r border-r-white border-r-half | flex flex-row items-center gap-4">
         <span class="pr-2">© 2012 - { new Date().getFullYear() } Starter Kit</span>
         <a class="decoration-transparent hover:fill-_hover inline" href='/'>
           <img src={logo} width="40" alt="SvelteKit" />

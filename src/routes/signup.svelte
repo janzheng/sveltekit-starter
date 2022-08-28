@@ -19,7 +19,7 @@
   import { userLogin } from '$plasmid/modules/pocket/'
 
   import Signup from '$plasmid/modules/pocket/components/Signup.svelte'
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
   import { session } from '$app/stores';
 
   let user = {}, profile = {}, error, message

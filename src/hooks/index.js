@@ -48,6 +48,16 @@ export async function getSession({ locals }) {
 }
 
 
+function getUser({ locals }) {
+  return locals.user;
+}
+
+function calculateDaysBetweenDates(begin, end) {
+
+}
+
+
+
 
 
 
@@ -82,11 +92,6 @@ export async function handle({ event, resolve }) {
         })
       )
     }
-    // 
-    // 
-    // 
-
-
 
     // endpoint call
     response = await resolve(event);

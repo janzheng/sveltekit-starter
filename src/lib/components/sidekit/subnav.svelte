@@ -6,6 +6,7 @@
 	import Dropdown from '$lib/components/sidekit/dropdown.svelte';
   
   export let show = true
+  export let classes
 </script>
 
 <!-- desktop -->
@@ -14,6 +15,7 @@
   ---
   hidden
   content-center items-center leading-6
+  {classes}
   {show ? ' sm:block sm:visible sm:relative sm:flex' : ' '}
   ">
 
@@ -23,17 +25,15 @@
     sm:flex sm:gap-2 
     justify-between w-full px-8 sm:pl-0
     ">
-    <slot name="leftnav">
+    <slot>
       <ul class="subnav-items-left
         ---
         sm:space-x-2 sm:flex flex-row place-content-end list-none
         ">
-        <li class:active={$page.url.pathname === '/sidekit'}><a sveltekit:prefetch href="/sidekit">Sidekit</a></li>
+        <li class:active={$page.url.pathname === '/instill'}><a sveltekit:prefetch href="/instill">Instill</a></li>
+        <li class:active={$page.url.pathname === '/svex'}><a sveltekit:prefetch href="/svex">Svex</a></li>
         <li class:active={$page.url.pathname === '/playground'}><a sveltekit:prefetch href="/playground">Playground</a></li>
         
-
-
-
         <!-- markdoc docs examples -->
         <li>
           <Dropdown>
@@ -43,6 +43,7 @@
               <a class="dropdown-button" href={'/docs'}>Markdoc</a>
               <a class="dropdown-button" href={'/docs/getting-started'}>Getting Started</a>
               <a class="dropdown-button" href={'/docs/overview'}>Overview</a>
+            </div>
           </Dropdown>
         </li>
         
@@ -56,6 +57,7 @@
               <a class="dropdown-button" href={'/sidekit'}>Sidekit</a>
               <a class="dropdown-button" href={'/sidekit/vertical'}>Vertical Dash</a>
               <a class="dropdown-button" href={'/sidekit/forms'}>Form Elements</a>
+            </div>
           </Dropdown>
         </li>
         
@@ -68,12 +70,34 @@
               <div>
                 <a class="dropdown-button" href={'/pocket/dashboard'}>Dashboard</a>
                 <a class="dropdown-button" href={'/pocket/profile'}>Profile</a>
-                <a class="dropdown-button" href={'/pocket/playground'}>Playground</a>
+                <a class="dropdown-button" href={'/pocket/votes'}>Votes</a>
               </div>
               <div>
                 <a class="dropdown-button" href={'/login'}>Login</a>
                 <a class="dropdown-button" href={'/signup'}>Signup</a>
                 <a class="dropdown-button" href={'/pocket/forgot'}>Forgot</a>
+              </div>
+            </div>
+          </Dropdown>
+        </li>
+
+        <!-- form experiments -->
+        <li>
+          <Dropdown>
+            <span slot="title">Form Experiments</span>
+
+            <div class="grid grid-cols-2 gap-2 px-2">
+              <div>
+                <a class="dropdown-button" href={'/forms/simple'}>Simple</a>
+                <a class="dropdown-button" href={'/forms/svelte-forms'}>Svelte Forms</a>
+                <a class="dropdown-button" href={'/forms/simple-todo'}>Simple Todo</a>
+                <a class="dropdown-button" href={'/forms/select'}>Select</a>
+              </div>
+              <div>
+                <a class="dropdown-button" href={'/forms/formlet-evg'}>Formlet Evergreen</a>
+                <a class="dropdown-button" href={'/forms/formlet-simple'}>Formlet Simple</a>
+                <a class="dropdown-button" href={'/forms/formlet-sop'}>Formlet SoP</a>
+                <a class="dropdown-button" href={'/forms/formlet-vom'}>Formlet VoM</a>
               </div>
             </div>
           </Dropdown>
@@ -99,7 +123,7 @@
 
 <!-- for mobile, use the vertical nav -->
 
-<style lang="postcss">
+<style lang="postcss" global>
   :root {
     --subnav-logo-height: 2rem;
     --subnav-active-color: 2rem;
@@ -107,28 +131,34 @@
 
   .subnav li {
     @apply 
-      py-2 px-2 border-b-2 
+      border-b-2 
       border-solid border-transparent
       whitespace-nowrap
-      hover:bg-gray-100
     ;
     /* @apply rounded-md; // screws up active state border */
 
 
-    a {
-      @apply text-gray-900 no-underline;
+    & > a {
+      @apply 
+        inline-block
+        py-2 px-2 text-gray-900 no-underline
+        border-solid border-transparent rounded-md 
+        hover:bg-gray-100
+      ;
     }
 
     &:last-child {
-      @apply pr-0;
+      /* using this looks weird on links-only subnavs */
+      /* @apply pr-0; */
+    }
+
+    &.active {
+      border-bottom-color: var(--color-blue-600);
+    }
+  
+    a.btn {
+      @apply text-gray-900 no-underline;
     }
   }
 
-  li.active {
-    border-bottom-color: var(--color-blue-600);
-  }
-
-  a.btn {
-    @apply text-gray-900 no-underline;
-  }
 </style>

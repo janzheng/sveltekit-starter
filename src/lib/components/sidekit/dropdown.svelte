@@ -1,7 +1,7 @@
 
 <script>
 	import { onMount } from "svelte";
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
   export let showArrow = true, isBtn = false
   
@@ -13,8 +13,13 @@
 
 </script>
 
-<span class="dropdown relative pr-2">
+<span class="dropdown relative">
   <button
+    class="
+      py-2 px-2 text-gray-900 no-underline
+      border-solid border-transparent rounded-md 
+      hover:bg-gray-100
+    "
     class:btn={isBtn}
     type="button"
     id="dropdownMenuButton1"

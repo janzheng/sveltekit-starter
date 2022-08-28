@@ -9,6 +9,7 @@ import remarkAttr from 'remark-attr'
 import rehypeSlug from 'rehype-slug'
 // import autoprefixer from 'autoprefixer'
 
+// import { plugin as markdown, Mode } from "vite-plugin-markdown";
 // import preprocessMarkdoc from 'svelte-markdoc'
 import markdocConfig from './markdoc.config.js'
 
@@ -18,22 +19,22 @@ dotenvconf()
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte'], // adding .md here screws up vite meta glob import
+  extensions: ['.svelte', '.svx'], // adding .md here screws up vite meta glob import
   preprocess: [
     // preprocessMarkdoc(markdocConfig), // load usin api instead
-    // mdsvex({
-    //   extensions: ['.md'],
-    //   layout: {
-    //     blog: 'src/routes/blog/_post.svelte',
-    //     content: 'src/lib/layouts/_content.svelte'
-    //   },
-    //   remarkPlugins: [
-    //     remarkAttr,
-    //   ],
-    //   rehypePlugins: [
-    //     rehypeSlug,
-    //   ]
-    // }),
+    mdsvex({
+      extensions: ['.svx'],
+      layout: {
+        blog: 'src/routes/blog/_post.svelte',
+        content: 'src/lib/layouts/_content.svelte'
+      },
+      remarkPlugins: [
+        remarkAttr,
+      ],
+      rehypePlugins: [
+        rehypeSlug,
+      ]
+    }),
     preprocess({
       postcss: true,
     }),

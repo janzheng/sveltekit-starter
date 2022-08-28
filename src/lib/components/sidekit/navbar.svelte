@@ -9,7 +9,8 @@
 
   export let logo = '/icon.png'
   export let isMobileNavOpen = false
-  export let showBurgers = true
+  export let useMobileMenu = true
+  export let showLogo = true
 
 	import { session } from '$app/stores';
   import { getAvatar } from '$plasmid/modules/pocket/'
@@ -18,20 +19,28 @@
 </script>
  
 <!-- desktop -->
-<div class="navbar desktop | hidden sm:block sm:visible sm:relative sm:flex content-center items-center leading-6">
-  <div class="px-2 sm:mr-2 border-r border-r-white border-r-half">
-    <a sveltekit:prefetch class="decoration-transparent hover:fill-_hover" href='/'>
-      <img class="logo" src={logo} alt="" height="2" />
-    </a>
-  </div>
+<div class="navbar desktop | sm:block sm:visible sm:relative sm:flex content-center items-center leading-6 | {useMobileMenu ? ' hidden sm:block ' : ' block '}" >
+  {#if showLogo}
+    <div class="navbar-logo px-2 sm:mr-2 border-r border-r-white border-r-half">
+      <slot name="logo">
+        <a sveltekit:prefetch class="decoration-transparent hover:fill-_hover" href='/'>
+          <img class="logo" src={logo} alt="" height="2" />
+        </a>
+      </slot>
+    </div>
+  {/if}
 
   <nav class="navbar-items relative sm:flex flex-1 justify-center content-center items-center flex-wrap sm:gap-2 justify-between w-full px-8 sm:pl-0">
     <slot name="leftnav">
       <ul class="navbar-items-left | sm:space-x-2 sm:flex flex-row place-content-end list-none">
-        <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
+        <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/dashboard">Dashboard</a></li>
         <li class:active={$page.url.pathname === '/blog'}><a sveltekit:prefetch href="/blog">Blogs!</a></li>
-        <li class:active={$page.url.pathname === '/deta/upload'}><a sveltekit:prefetch href="/deta/upload">Deta Upload (IPFS + Airtable)</a></li>
+        <li class:active={$page.url.pathname === '/deta/upload'}><a sveltekit:prefetch href="/deta/upload">Uploader</a></li>
+        <li class:active={$page.url.pathname === '/r2/upload'}><a sveltekit:prefetch href="/r2/upload">R2 Upload</a></li>
         <li class:active={$page.url.pathname === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
+        <li class:active={$page.url.pathname === '/calendar'}><a sveltekit:prefetch href="/calendar">Event Cal</a></li>
+        <li class:active={$page.url.pathname === '/content'}><a sveltekit:prefetch href="/content">Content</a></li>
+        <li class:active={$page.url.pathname === '/notion'}><a sveltekit:prefetch href="/notion">Notion</a></li>
       </ul>
     </slot>
   </nav>
@@ -62,8 +71,8 @@
 
 
 <!-- mobile -->
-{#if showBurgers}
-  <div class="navbar mobile | _content-wide p-0 | block sm:hidden relative flex content-center items-center leading-6">
+{#if useMobileMenu}
+  <div class="navbar mobile | _content p-0 | block sm:hidden relative flex content-center items-center leading-6">
     <div class="24 pr-2 border-r border-r-white border-r-half">
       <button on:click={()=>{isMobileNavOpen=!isMobileNavOpen}} class="navbar-toggler collapsed | border-gray-100 border-2" type="button" 
         data-bs-toggle="collapse" 
@@ -141,14 +150,16 @@
 
 
   a {
-    @apply text-gray-900 no-underline;
+    @apply 
+      text-gray-900 no-underline
+      hover:text-blue-700;
   }
 
   a.btn {
     @apply text-gray-900 no-underline;
   }
 
-  li.active a {
+  li.active a:not(.btn) {
     @apply text-blue-600 font-bold;
   }
 

@@ -1,7 +1,7 @@
 
 <!-- goto this route to trigger log in -->
 <script context="module">
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 
   export async function load({ fetch, session }) {
 		try {

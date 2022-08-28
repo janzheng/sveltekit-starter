@@ -1,7 +1,7 @@
 
 <script>
 	import { onMount } from "svelte";
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	import Navbar from '$lib/components/sidekit/navbar.svelte';
 	import Subnav from '$lib/components/sidekit/subnav.svelte';
@@ -15,6 +15,12 @@
 
   export let isMobileNavOpen = false
 </script>
+
+
+<div class="Card-light m-2 p-2">
+  Everything below is built on Sidekit
+</div>
+
 
 <header id="navbar" class="_content-wide">
   <Navbar bind:isMobileNavOpen={isMobileNavOpen}>

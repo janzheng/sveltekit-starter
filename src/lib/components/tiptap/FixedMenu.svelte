@@ -1,6 +1,6 @@
 <script>
   
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 	import { toggleBold, toggleItalic, toggleStrike, toggleSuperscript, toggleSubscript, toggleUnderline, useGreek } from './buttonActions.js';
 	import Button from './Button.svelte';
 	
@@ -36,7 +36,7 @@
   </div>
 {/if}
 
-<style type="text/scss">
+<style lang="postcss">
 
   .icon {
     position: relative;

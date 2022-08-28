@@ -1,7 +1,7 @@
 
 <script>
 	import { onMount } from "svelte";
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
@@ -24,12 +24,12 @@
 </script>
 
 
-<header id="navbar" class="_content-wide pb-0">
-  <Navbar bind:isMobileNavOpen={isMobileNavOpen} showBurgers={true} >
+<header id="navbar" class="_content pb-0">
+  <Navbar bind:isMobileNavOpen={isMobileNavOpen} useMobileMenu={true} >
   </Navbar>
 </header>
-<div class="_content-wide py-0">
-  <Subnav></Subnav>
+<div class="_content py-2">
+  <Subnav show={true}></Subnav>
 </div>
 
 <!-- collapsible mobile nav — kept separate from subnav for optionality -->

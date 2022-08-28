@@ -10,7 +10,7 @@
   </button>
 {/if}
 
-<style type="text/scss">
+<style lang="postcss">
 	button {
     margin: 0;
     background: #eee !important;

@@ -59,7 +59,7 @@
 </script>
 
 
-<style type="text/scss" global>
+<style lang="postcss" global>
 
 ._form-checkbox {
 

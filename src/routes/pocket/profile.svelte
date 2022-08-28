@@ -1,7 +1,7 @@
 
 
 <script context="module">
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   
 	export function load({ session }) {
 		if (!session.user && !browser) {
