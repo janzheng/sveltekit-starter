@@ -1,18 +1,4 @@
 
-<script context="module">
-  
-  export const load = async ({ params, url }) => {
-    let page = url.searchParams.get('page')
-
-    if(!page || page < 1)
-      page = 1
-    page -= 1 // 1-indexed
-    return { props: {page} }
-  }
-</script>
-
-
-
 <div class="max-w-xl md:max-w-4xl mx-auto py-12 ">
 	<div class="Card " > 
     <!-- <Formlet
@@ -70,12 +56,15 @@
   export let SimpleForm = writable("FormdataVOM", {});
   export let curPage = writable("curPage", {})
 
-  import { formData } from "./formVomPaged.js";
+  import { formData } from "../formVomPaged.js";
   // import Formlet from '$lib/components/formlet/Formlet.svelte'
   import FormletPaged from '$lib/components/formlet/FormletPaged.svelte'
 
+  export let data
+  export let {page} = data
+  
   export let formState, resetForm
-  export let page, formSubmitted, formSubmitting, furthestPageNumber
+  export let formSubmitted, formSubmitting, furthestPageNumber
 
   $: {
     $curPage = page // update the store for nav and other things

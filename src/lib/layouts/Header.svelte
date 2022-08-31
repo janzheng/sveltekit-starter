@@ -3,6 +3,7 @@
 	import { onMount } from "svelte";
 	import { browser } from '$app/environment';
 
+	import { isMenuOpen } from '$lib/store'
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
 
@@ -20,12 +21,12 @@
 		}
 	})	
 
-  export let isMobileNavOpen = false
+  // export let isMobileNavOpen = false
 </script>
 
 
 <header id="navbar" class="_content pb-0">
-  <Navbar bind:isMobileNavOpen={isMobileNavOpen} useMobileMenu={true} >
+  <Navbar bind:isMenuOpen={$isMenuOpen} useMobileMenu={true} >
   </Navbar>
 </header>
 <div class="_content py-2">
@@ -36,10 +37,10 @@
 <div
   id="navbar-menu"
   class="accordion-collapse collapse px-2 | sm:hidden"
-  class:show={isMobileNavOpen}
+  class:show={$isMenuOpen}
   data-bs-parent="#navbar"
 >
-  <SubnavMobile show={isMobileNavOpen}></SubnavMobile>
+  <SubnavMobile></SubnavMobile>
 </div>
 
 

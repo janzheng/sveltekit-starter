@@ -1,48 +1,28 @@
-<script context="module">
-	import { enhance } from '$lib/form';
-
-	// see https://kit.svelte.dev/docs#loading
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/deta/example-api');
-
-		if (res.ok) {
-			const items = await res.json();
-
-			return {
-				props: { items }
-			};
-		}
-
-		const { message } = await res.json();
-
-		return {
-			error: new Error(message)
-		};
-	};
-
-</script>
-
-
-
 
 <div class="_content">
 	<h1>Deta Example</h1>
 
   <ul>
     {#each items as item}
-    <li>Name: {item.name}</li>
+    <li class="mb-8">
+      <!-- deta/uploads/cnt-purple.png -->
+      {#if item.filename}
+        <img class="block" width="100" src={`/deta/uploads/${item.filename}`} alt="yes" />
+      {/if}
+      Name: {item.name}
+    </li>
     {/each}
   </ul>
 
 	<form
 		class="new"
-		action="/deta/api"
+		action="/deta/example-api"
 		method="post"
     enctype="multipart/form-data"
 		use:enhance={{
-			result: async (res, form) => {
-        console.log('result ... err')
-				// const created = await res.json();
+			result: async ({form, data, response}) => {
+        const json = await response.json();
+        console.log('result ... err', json, response)
 				// todos = [...todos, created];
 
 				// form.reset();
@@ -62,10 +42,10 @@
 
 
 <script>
+  import { enhance } from '$lib/form';
 
-
-  import { browser } from '$app/environment';
-	export let items;
+  export let data
+	export let {items} = data;
 
   console.log('items ::', items)
 

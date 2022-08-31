@@ -9,7 +9,8 @@
 <script>
   import { tick } from "svelte";
 	import { writable } from 'svelte/store';
-	import { session, page } from '$app/stores';
+	import { page } from '$app/stores';
+	import { user } from '$lib/store'
   import { getReplies, doReply } from '$plasmid/modules/instill/replies'
 
 	import Reply from '$lib/components/instill/blocks/Reply.svelte';
@@ -21,8 +22,7 @@
 
 
   let allReplies = writable(replies)
-  let user, isDataLoaded, error
-	$: user = $session.user;
+  let isDataLoaded, error
 
   export let newReply = writable({
     source: `${source}`,
@@ -39,8 +39,8 @@
   }
 
 
-  $: if(user) {
-    $newReply.userId = user?.id
+  $: if($user) {
+    $newReply.userId = $user?.id
   }
   
 </script>

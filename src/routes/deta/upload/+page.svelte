@@ -1,20 +1,3 @@
-<!-- <script context="module">
-  // use session hooks to reveal public env keys instead
-	import { enhance } from '$lib/form';
-
-	// see https://kit.svelte.dev/docs#loading
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/deta/key');
-
-		if (res.ok) {
-			const { key } = await res.json();
-			return {
-				props: { detaKey: key }
-			};
-		}
-	}
-
-</script> -->
 
 
 
@@ -42,28 +25,33 @@
   <!-- this exposes keys, but allows for large uploads -->
 	<form
 		class="new"
-    on:submit|preventDefault={async ()=>{
-      let file = await uploadFileToIpfs(files[0])
-      console.log('IPFS done:', file)
-    }}
+		action="/api/upload-ipfs"
+		method="post"
+    enctype="multipart/form-data"
+		use:enhance={{
+			result: async ({ form }) => {
+				// form.reset();
+      // let file = await uploadFileToIpfs(files[0])
+      console.log('IPFS Estuary server-side upload TODO')
+			}
+		}}
 	>
+    <!-- <input type="text" id="fname" name="fname" value="John"> -->
     <h3>Chunked upload</h3>
-    <label class="_form-label" for="fname">File to add to Airtable:</label><br>
-    <input 
-      class="form-control _form-file mb-2" type="file" name="file"
-      bind:files
-    >
+    <label class="_form-label" for="file">File to upload:</label><br>
+    <input class="form-control _form-file mb-2" id="file" type="file" name="file" bind:files>
     <!-- <input 
       class="form-control _form-file mb-2" type="file" name="file"
       accept="image/png, image/jpeg"
       bind:files
     > -->
-    <input class="form-control _form-submit" on:click={()=>uploadFileAirtable()} value="Deta/Airtable Upload">
-    <input class="form-control _form-submit" type="submit" value="IPFS Upload">
+    <button type="button" class="btn-solid --short form-control _form-submit" on:click|preventDefault={()=>uploadFileAirtable()} >Deta/Airtable Upload</button>  
+    <button class="btn-solid --short form-control _form-submit" type="submit" >IPFS Upload </button>
+    (Sep 1 2022: Estuary doesn't seem to be working)
     
 	</form>
 
-  <div>
+  <div class="mt-4">
     <pre>{JSON.stringify($progress, null, 2)}</pre>
   </div>
   
@@ -98,11 +86,12 @@
 
 <script>
   
-  import { session } from "$app/stores"; 
+	import { enhance } from '$lib/form';
+  import { env } from '$env/dynamic/public';
   
   import { getFileImagePreview } from '$plasmid/utils/uploads/fileImagePreview' 
   import { getFileHash } from '$plasmid/utils/uploads/fileHash' 
-  import { uploadFileToIpfs } from '$plasmid/utils/uploads/uploadIpfs' 
+  // import { uploadFileToIpfs } from '$plasmid/utils/uploads/uploadIpfs' 
   import { uploadFileToDeta } from '$plasmid/utils/uploads/uploadDeta' 
 
   import * as store from 'svelte/store'
@@ -115,7 +104,7 @@
   })
 
   export let files, uploadComplete
-  const DETA_KEY = $session.env['DETA_KEY']
+  const PUBLIC_DETA_KEY = env['PUBLIC_DETA_KEY']
   
   
 
@@ -137,7 +126,7 @@
 
   $: console.log('Upload progress:', $progress)
   async function uploadFileAirtable() {
-    uploadComplete = await uploadFileToDeta(files[0], 'b0mp9xi4', 'uploads', DETA_KEY, progress, fetch)
+    uploadComplete = await uploadFileToDeta(files[0], 'b0mp9xi4', 'uploads', PUBLIC_DETA_KEY, progress, fetch)
     console.log('Upload complete!!', uploadComplete)
 
     // move file to Airtable using /deta/airtable endpoint

@@ -17,4 +17,7 @@
   }
 </script>
 
-<Select {items} {value} on:select={handleSelect}></Select>
+
+<div class="_content">
+  <Select {items} {value} on:select={handleSelect}></Select>
+</div>

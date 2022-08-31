@@ -2,23 +2,24 @@
 <script>
 
 	import { writable } from 'svelte/store';
-	import { session } from '$app/stores';
+	import { page } from '$app/stores';
   import debounce from 'lodash/debounce'
+
+	import { user } from '$lib/store'
 
   import { getVotes, getVotesByUser, doUpvote } from '$plasmid/modules/instill/votes'
 
 
-  let user, isDataLoaded, error
-	$: user = $session.user;
+  let isDataLoaded, error
 
   // let upvoteRecord
   let votes = writable([])
   let source = 'playground-vote-example'
 
 	let myVote = writable({
-    userId: user?.id,
+    userId: $user?.id,
     source,
-    parentId: post.id,
+    // parentId: post.id,
     type: 'vote',
     number: 0,
   });
@@ -28,14 +29,14 @@
   const refreshData = async () => {
     // getVotes('playground-example-1').then(res => allVotes = res)
     $votes = await getVotes(source)
-    if(user) {
-      $myVote = $votes?.find(vote => vote.userId === user.id) || $myVote
+    if($user) {
+      $myVote = $votes?.find(vote => vote.userId === $user.id) || $myVote
       isDataLoaded = true
     }
   }
 
-  $: if(user) {
-    $myVote.userId = user?.id
+  $: if($user) {
+    $myVote.userId = $user?.id
     refreshData()
   } else {
     error = true
@@ -66,7 +67,7 @@
           # of vote records: {$votes?.length}
           <div class="my-4">
             {#if $votes}
-              {#each $votes.reverse() as vote}
+              {#each $votes.sort((a,b) => b.number - a.number) as vote}
                 <div class="mb-2">{vote.number} | {vote.updated} | {vote?.userId}</div>
               {/each}
             {/if}

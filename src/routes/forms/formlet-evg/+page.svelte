@@ -17,12 +17,13 @@
 
 
 <script>
+
   import { writable } from "svelte-local-storage-store";
   export const SimpleForm = writable("FormdataSimple", {
     // form: {}
   });
 
-  import { formData } from "./formEvg.js";
+  import { formData } from "../formEvg.js";
   import Formlet from '$lib/components/formlet/Formlet.svelte'
   // import Formlet from '$lib/components/formlet/FormletPaged.svelte'
 

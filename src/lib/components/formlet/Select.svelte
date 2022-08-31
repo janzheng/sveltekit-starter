@@ -90,7 +90,7 @@
 
 
 
-<style global lang="postcss">
+<style lang="scss" global>
 
   $border-thin: 2px;
   $size: 1rem;

@@ -21,10 +21,12 @@
 
 <script>
   
-  import Login from '$plasmid/modules/pocket/components/Login.svelte'
 	import { browser } from '$app/environment';
+  import { env } from '$env/dynamic/public';
+  
+  import Login from '$plasmid/modules/pocket/components/Login.svelte'
   import { userLogin } from '$plasmid/modules/pocket/'
-  import { session } from '$app/stores';
+  // import { session } from '$app/stores';
 
   let user = {}, error, message
 
@@ -44,24 +46,25 @@
 			if (res.ok && browser) {
         // log-in as client as well, and set session
         let _user = await userLogin(user.email, user.password)
-        $session['user'] = _user
+        // $session['user'] = _user
 
-        console.log('session: ', _user)
-				window.location.replace('/account/handle-login');
+        console.log('[login/+page.svelte] session: ', _user)
+				window.location.replace(env['PUBLIC_ROUTE_LOGGEDIN']);
 			} 
       if(!res.ok) {
         let _error = await res.json()
-        error = _error.message
-        console.log('Login error: ', error)
+        // error = _error.message
+        console.log('[login/+page.svelte] Login error: ', res, _error)
+        message = _error?.data?.message
       }
 		} catch (error) {
-			console.error(`Error in handleSubmit on / route: ${error}`);
+			console.error(`[login/+page.svelte] Error in handleSubmit on / route: ${error}`);
 		}
 	}
 
   const authHandler = async () => {
     const res = await fetch(
-      '/dashboard/dashboard-auth', {
+      '/api/authorized', {
       method: 'POST',
       body: JSON.stringify({
         message: "secret message"

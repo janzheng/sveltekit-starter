@@ -1,23 +1,4 @@
 
-<script context="module">
-  export const load = async ({ params, fetch }) => {
-    const slug = params.profileSlug
-    // const response = await fetch('/api/posts.json')
-    // const posts = await response.json()
-
-    // const matchingPosts = posts
-    //   .filter(post => post.meta.slug == slug)
-
-    return {
-      props: {
-        slug,
-        // post: matchingPosts.length > 0 ? matchingPosts[0] : {}
-      }
-    }
-  }
-</script>
-
-
 <script>
 
   import { env } from '$env/dynamic/public';
@@ -26,7 +7,8 @@
   import Notion from '@yawnxyz/sveltekit-notion'
   import SocialBox from '$plasmid/components/SocialBox.svelte'
 
-  export let slug
+  export let data
+  export let {slug} = data
   let profile
 
   async function loadProfile() {

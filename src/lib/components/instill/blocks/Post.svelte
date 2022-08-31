@@ -3,7 +3,8 @@
 
 <script>
 	import { writable } from 'svelte/store';
-	import { session, page } from '$app/stores';
+	import { page } from '$app/stores';
+	import { user } from '$lib/store'
 
   import debounce from 'lodash/debounce'
 
@@ -23,8 +24,7 @@
 
 
   let allVotes = writable(votes)
-  let user, isDataLoaded, error
-	$: user = $session.user;
+  let isDataLoaded, error
 
   // post data
   // export let profiles = writable([])
@@ -39,10 +39,10 @@
 
 
 
-  $: if(user) {
+  $: if($user) {
     $myVote.userId = user?.id
     if($allVotes.length == 0) $allVotes.push($myVote)
-    $myVote = $allVotes.find(vote => vote.userId === user.id)
+    $myVote = $allVotes.find(vote => vote.userId === $user.id)
   } else {
     error = true
   }

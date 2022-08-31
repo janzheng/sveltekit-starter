@@ -1,30 +1,16 @@
 
 <!-- this is specific to the dashboard folder -->
-<script context="module">
-  
-	export function load({ session }) {
-		if (!session.user) {
-      console.info('User logged out')
-			return {
-				redirect: '/',
-				status: 302
-			};
-		}
-		return {};
-	}
-</script>
-
 <script>
 	import { goto, prefetch } from '$app/navigation';
-	import { session } from '$app/stores';
-
-  let user
-	$: user = $session.user;
+	import { user } from '$lib/store'
+	import { page } from '$app/stores';
 
 	async function handleLogout() {
-		session.set({ user: null });
-		await prefetch('/account/handle-logout');
-		await goto('/account/handle-logout');
+    $user = null
+		// await prefetch('/api/account/logout');
+		await goto('/api/account/logout');
+		// await prefetch('/account/handle-logout');
+		// await goto('/account/handle-logout');
 	}
 </script>
 
@@ -33,11 +19,15 @@
 
 <div class="_page">
 
-  {#if user}
-    (dashboard layout)
-    <button type="button" on:click={handleLogout}>Logout {user}</button>
+  {#if $user}
+  <div class="my-4 Card-flat">
+      (Dashboard +layout.svelte)
+      <div class="mt-4">
+        <button class="btn-solid " type="button" on:click={handleLogout}>Logout {$user?.email}</button>
+      </div>
+    </div>
 
-    <main class="container">
+    <main class="container Card-light">
       <slot />
     </main>
   {/if}

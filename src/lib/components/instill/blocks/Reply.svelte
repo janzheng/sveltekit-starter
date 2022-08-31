@@ -6,27 +6,27 @@
 
 -->
 <script>
-	import { session, page } from '$app/stores';
+	import { page } from '$app/stores';
 	import { writable } from 'svelte/store';
+	import { user } from '$lib/store'
   import { dateTo, dateFromLocal } from "$plasmid/utils/date.js";
   import { getReplies, doReply } from '$plasmid/modules/instill/replies'
 
   export let replies, reply, profiles, source, root
   export let showEditor = false, refreshData
 
-  let user, isDataLoaded, error
-	$: user = $session.user;
+  let isDataLoaded, error
 
   export let newReply = writable({
     source: `${source}`,
     parentId: reply.id,
-    userId: user?.id,
+    userId: $user?.id,
   })
 
   // $: console.log('TR::', profiles, '|||', reply)
 
-  $: if(user) {
-    $newReply.userId = user?.id
+  $: if($user) {
+    $newReply.userId = $user?.id
   }
 </script>
 

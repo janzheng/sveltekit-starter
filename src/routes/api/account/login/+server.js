@@ -3,25 +3,22 @@
 import { userLoginEndpoint } from '$plasmid/modules/pocket/'
 
 
-
+import { json, error } from '@sveltejs/kit'
 export async function POST({ locals, request }) {
-  const { email, password } = await request.json();
-
   try {
+    const { email, password } = await request.json();
     const userObject = await userLoginEndpoint(email, password);
-
+    // console.log('user object:::', userObject)
     locals.user = userObject.user;
-
-    return {
-      status: 200,
-      body: userObject.user
-    };
-  } catch (error) {
-    console.error('Login not completed', error?.response?.data?.message)
-    // const message = `Error in endpoint /api/login: ${error?.data?.message}`;
-    return {
-      status: 500,
-      body: error?.response?.data
-    };
+    return json(userObject.user);
+  } catch (e) {
+    console.log('[account/login/+serverjs] Login not completed', e?.response?.data)
+    throw error(500,
+      JSON.stringify({
+        status: e?.response?.status,
+        data: e?.response?.data,
+        statusText: e?.response?.statusText,
+      })
+    )
   }
 }

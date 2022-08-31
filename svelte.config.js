@@ -19,13 +19,13 @@ dotenvconf()
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', '.svx'], // adding .md here screws up vite meta glob import
+  extensions: ['.svelte', '.svx', '.md', '.mdoc', '.markdoc'], // adding .md here screws up vite meta glob import
   preprocess: [
     // preprocessMarkdoc(markdocConfig), // load usin api instead
     mdsvex({
-      extensions: ['.svx'],
+      extensions: ['.svx', '.md'],
       layout: {
-        blog: 'src/routes/blog/_post.svelte',
+        blog: 'src/lib/layouts/_post.svelte',
         content: 'src/lib/layouts/_content.svelte'
       },
       remarkPlugins: [
@@ -33,6 +33,7 @@ const config = {
       ],
       rehypePlugins: [
         rehypeSlug,
+        // rehypeAutolinkHeadings,
       ]
     }),
     preprocess({
@@ -49,14 +50,15 @@ const config = {
     // used for static, to generate a bunch of pages
     // adapter: adapter_static(),
     prerender: {
+      default: false,
       crawl: true,
       enabled: true,
       // pages: // generate an array of pages
-      entries: [
-        // "/blog/slug/one-one",
-        // "/blog/slug/two-two",
-        "*"
-      ]
+      // entries: [
+      //   // "/blog/slug/one-one",
+      //   // "/blog/slug/two-two",
+      //   "*"
+      // ]
     },
 
     methodOverride: {

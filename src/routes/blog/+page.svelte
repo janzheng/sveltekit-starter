@@ -1,32 +1,23 @@
-<!-- src/routes/blog/index.svelte -->
-<script context="module">
-export const load = async ({ fetch }) => {
-  const posts = await fetch('/api/posts.json')
-  const allPosts = await posts.json()
-
-  return {
-    props: {
-      posts: allPosts
-    }
-  }
-}
-</script>
-
 <script>
-  export let posts
+	import PostsList from '$lib/components/PostsList.svelte'
+	import Pagination from '$lib/components/Pagination.svelte'
+	import { siteDescription } from '$lib/config'
+
+	export let data
+
 </script>
+
+
+<svelte:head>
+	<title>Blog</title>
+	<meta data-key="description" name="description" content={siteDescription}>
+</svelte:head>
+
 
 <div class="_content">
-  <ul>
-    {#each posts as post}
-      <li>
-        <h2>
-          <a href={post.path}>
-            {post.meta.title}
-          </a>
-        </h2>
-        Published {post.meta.date}
-      </li>
-    {/each}
-  </ul>
+  <h1>Blog</h1>
+  
+  <PostsList posts={data.posts} />
+  
+  <Pagination currentPage={1} totalPosts={data.total} />
 </div>

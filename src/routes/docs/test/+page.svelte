@@ -70,7 +70,7 @@ fruit: {% $fruit %}
       fruit: "banana"
     },
     partials: {
-      'header.md': mdoc.parse(`# my partial header!`)
+      'header.md': mdoc.parse(`# This is my partial header!`)
     }
 	};
 	

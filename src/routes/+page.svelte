@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
 <script>
 	import Counter from '$lib/Counter.svelte'
   import Hooray from '$plasmid/components/Hooray.svelte'

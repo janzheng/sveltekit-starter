@@ -1,3 +1,5 @@
+import { json } from '@sveltejs/kit';
+
 
 // https://dev.to/danawoodman/getting-form-body-data-in-your-sveltekit-endpoints-4a85`
 function getFormBody(body) {
@@ -28,7 +30,8 @@ function getFormBody(body) {
 export const POST = async ({ params, request }) => {
   let form = await request.json()
   console.log('form:', form)
-  return {
-    body: form
-  }
+  return json(form);
+  // return {
+  //   body: form
+  // }
 }

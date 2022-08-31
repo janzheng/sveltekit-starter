@@ -1,27 +1,34 @@
-// posts.json.js
-export const GET = async () => {
-  const allPostFiles = import.meta.glob('../blog/*.md')
-  const iterablePostFiles = Object.entries(allPostFiles)
 
-  const allPosts = await Promise.all(
-    iterablePostFiles.map(async ([path, resolver]) => {
-      const { attributes, html } = await resolver()
-      const postPath = path.slice(2, -3)
+import { json, error } from '@sveltejs/kit';
+import { postsPerPage } from '$lib/config'
+import { fetchPosts } from '$lib/utils/fetchPosts'
 
-      return {
-        meta: attributes,
-        path: postPath,
-        content: html,
-      }
-    })
-  )
+export const GET = async ({ url }) => {
+	try {
+		/**	
+		 * These let you add query params to change what's retrieved from the endpoint, e.g., 
+		 * /api/posts.json?offset=10&limit=20
+		 **/
 
-  const sortedPosts = allPosts.sort((a, b) => {
-    return new Date(b.meta.date) - new Date(a.meta.date)
-  })
+		const params = new URLSearchParams(url.search)
+				
+		const options = {
+			offset: parseInt(params.get('offset')) || null,
+			limit: parseInt(params.get('limit')) || postsPerPage
+		}
 
+		/**
+		 * Endpoint uses a utility function for retrieving the posts, because without that,
+		 * query parameters wouldn't result in static routes being generated at build time.
+		 * It's also a little cleaner in the code.
+		 */
 
-  return {
-    body: sortedPosts
-  }
+		const posts = await fetchPosts(options)
+    return json(posts)
+	}
+
+	catch(err) {
+    console.error('err:', err)
+		throw error(500, `Could not fetch posts. ${err}`)
+	}
 }

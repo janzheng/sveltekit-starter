@@ -1,33 +1,14 @@
-<script context="module">
-	import { enhance } from '$lib/form';
-
-	export const load = async ({ fetch }) => {
-    let dbKittens, detaKey
-		let res = await fetch('/deta/get-kittens');
-		if (res.ok) {
-			const { kittens } = await res.json();
-      dbKittens = kittens
-		}
-    return {
-      props: { dbKittens }
-    };
-    
-	}
-
-</script>
-
-
 
 
 <script>
-
-  export let dbKittens
+  export let data
+  export let {kittens} = data
 
 </script>
 
-<div>
+<div class="_content">
   DB Kittens: 
   <pre>
-    {JSON.stringify(dbKittens,null,2)}
+    {JSON.stringify(kittens,null,2)}
   </pre>
 </div>

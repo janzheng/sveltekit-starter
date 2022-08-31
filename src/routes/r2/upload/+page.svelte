@@ -51,15 +51,13 @@
 
 
 <script>
-  import { session } from "$app/stores"; 
+
+  import { PUBLIC_PDR2_AUTH, PUBLIC_PDR2_ENDPOINT } from '$env/static/public';
 
   import { getFileImagePreview } from '$plasmid/utils/uploads/fileImagePreview' 
   import { getFileHash } from '$plasmid/utils/uploads/fileHash' 
 
   export let files, uploadComplete
-  const PDR2_AUTH = $session.env['PDR2_AUTH']
-  const PDR2_ENDPOINT = $session.env['PDR2_ENDPOINT']
-
 
   // file preview & CID hash
   let preview, hash
@@ -79,17 +77,17 @@
 
     // move file to Airtable using /deta/airtable endpoint
     const res = await fetch(
-      `${PDR2_ENDPOINT}/${files[0].name}`, {
+      `${PUBLIC_PDR2_ENDPOINT}/${files[0].name}`, {
       method: 'PUT',
       body: files[0],
       headers: {
-        'X-Custom-Auth-Key': PDR2_AUTH
+        'X-Custom-Auth-Key': PUBLIC_PDR2_AUTH
       },
     })
 
     if(res.ok) {
       const resText = await res.text()
-      console.log('Uploaded!:', resText)
+      console.log('Uploaded!:', resText, 'link:', PUBLIC_PDR2_ENDPOINT + '/' + files[0].name)
       // access file at 
     } 
   }

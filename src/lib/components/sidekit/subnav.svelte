@@ -6,7 +6,7 @@
 	import Dropdown from '$lib/components/sidekit/dropdown.svelte';
   
   export let show = true
-  export let classes
+  export let classes = ''
 </script>
 
 <!-- desktop -->
@@ -30,9 +30,9 @@
         ---
         sm:space-x-2 sm:flex flex-row place-content-end list-none
         ">
-        <li class:active={$page.url.pathname === '/instill'}><a sveltekit:prefetch href="/instill">Instill</a></li>
-        <li class:active={$page.url.pathname === '/svex'}><a sveltekit:prefetch href="/svex">Svex</a></li>
-        <li class:active={$page.url.pathname === '/playground'}><a sveltekit:prefetch href="/playground">Playground</a></li>
+        <li class:active={$page.url.pathname === '/instill'}><a href="/instill">Instill</a></li>
+        <li class:active={$page.url.pathname === '/svex'}><a href="/svex">Svex</a></li>
+        <li class:active={$page.url.pathname === '/playground'}><a href="/playground">Playground</a></li>
         
         <!-- markdoc docs examples -->
         <li>

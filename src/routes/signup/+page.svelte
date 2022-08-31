@@ -16,11 +16,12 @@
 
 
 <script>
+	import { browser } from '$app/environment';
+  import { env } from '$env/dynamic/public';  
   import { userLogin } from '$plasmid/modules/pocket/'
 
   import Signup from '$plasmid/modules/pocket/components/Signup.svelte'
-	import { browser } from '$app/environment';
-  import { session } from '$app/stores';
+  // import { session } from '$app/stores';
 
   let user = {}, profile = {}, error, message
 
@@ -44,9 +45,9 @@
 			if (res.ok && browser) {
         // log-in as the newly created account
         let _user = await userLogin(user.email, user.password)
-        $session['user'] = _user
+        // $session['user'] = _user
         console.log('new account:', _user)
-				window.location.replace('/account/handle-login');
+				window.location.replace(env['PUBLIC_ROUTE_LOGGEDIN']);
 			} 
       if(!res.ok) {
         error = await res.json()
@@ -56,20 +57,6 @@
 			console.error(`Error in handleSubmit on / route: ${error}`);
 		}
 	}
-
-  const authHandler = async () => {
-    const res = await fetch(
-      '/dashboard/dashboard-auth', {
-      method: 'POST',
-      body: JSON.stringify({
-        message: "secret message"
-      })
-    })
-    if(res.ok) {
-      let jsonRes = await res.json()
-      console.log('ping:', jsonRes)
-    }
-  }
   
 </script>
 

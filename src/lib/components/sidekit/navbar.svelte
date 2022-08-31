@@ -4,17 +4,16 @@
 
 <!-- desktop nav -->
 <script>
-  import { prefetch, prefetchRoutes } from '$app/navigation'
+  // import { prefetch, prefetchRoutes } from '$app/navigation'
 	import { page } from '$app/stores';
+	import { user } from '$lib/store'
 
   export let logo = '/icon.png'
-  export let isMobileNavOpen = false
+  export let isMenuOpen = false
   export let useMobileMenu = true
   export let showLogo = true
 
-	import { session } from '$app/stores';
   import { getAvatar } from '$plasmid/modules/pocket/'
-  let user = $session.user
 
 </script>
  
@@ -23,7 +22,7 @@
   {#if showLogo}
     <div class="navbar-logo px-2 sm:mr-2 border-r border-r-white border-r-half">
       <slot name="logo">
-        <a sveltekit:prefetch class="decoration-transparent hover:fill-_hover" href='/'>
+        <a class="decoration-transparent hover:fill-_hover" href='/'>
           <img class="logo" src={logo} alt="" height="2" />
         </a>
       </slot>
@@ -33,34 +32,43 @@
   <nav class="navbar-items relative sm:flex flex-1 justify-center content-center items-center flex-wrap sm:gap-2 justify-between w-full px-8 sm:pl-0">
     <slot name="leftnav">
       <ul class="navbar-items-left | sm:space-x-2 sm:flex flex-row place-content-end list-none">
-        <li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/dashboard">Dashboard</a></li>
-        <li class:active={$page.url.pathname === '/blog'}><a sveltekit:prefetch href="/blog">Blogs!</a></li>
-        <li class:active={$page.url.pathname === '/deta/upload'}><a sveltekit:prefetch href="/deta/upload">Uploader</a></li>
-        <li class:active={$page.url.pathname === '/r2/upload'}><a sveltekit:prefetch href="/r2/upload">R2 Upload</a></li>
-        <li class:active={$page.url.pathname === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-        <li class:active={$page.url.pathname === '/calendar'}><a sveltekit:prefetch href="/calendar">Event Cal</a></li>
-        <li class:active={$page.url.pathname === '/content'}><a sveltekit:prefetch href="/content">Content</a></li>
-        <li class:active={$page.url.pathname === '/notion'}><a sveltekit:prefetch href="/notion">Notion</a></li>
+        <li class:active={$page.url.pathname === '/'}><a href="/dashboard">Dashboard</a></li>
+        <li class:active={$page.url.pathname === '/blog'}><a href="/blog">Blogs!</a></li>
+        <li class:active={$page.url.pathname === '/deta'}><a href="/deta/upload">Deta</a></li>
+        <li class:active={$page.url.pathname === '/deta/upload'}><a href="/deta/upload">Deta/Uploader</a></li>
+        <li class:active={$page.url.pathname === '/r2/upload'}><a href="/r2/upload">R2 Upload</a></li>
+        <li class:active={$page.url.pathname === '/todos'}><a href="/todos">Todos</a></li>
+        <li class:active={$page.url.pathname === '/calendar'}><a href="/calendar">Event Cal</a></li>
+        <li class:active={$page.url.pathname === '/content'}><a href="/content">Content</a></li>
+        <li class:active={$page.url.pathname === '/notion'}><a href="/notion">Notion</a></li>
       </ul>
     </slot>
   </nav>
 
   <div class="navbar-items-right">
     <slot name="rightnav">
+      <!-- <ul class="navbar-items-right | sm:space-x-4 sm:flex flex-row list-none"> -->
       <ul class="navbar-items-right | sm:space-x-4 sm:flex flex-row items-baseline list-none">
         <li class:active={$page.url.pathname === '/'}>
           <a class="btn font-small text-sm py-1 mr-2 inline-block" href="https://github.com/janzheng/sveltekit-starter">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg> Github
         </a></li>
-        {#if user}
+        {#if $user}
           <li>
-            <a sveltekit:prefetch href="/pocket/profile">
-              <div><img class="Avatar inline-block" src={getAvatar(user?.profile)} alt="user profile"/></div>
+            <a href="/pocket/profile">
+              <div>
+                {#if getAvatar($user?.profile)}
+                  <img class="Avatar inline-block" src={getAvatar($user?.profile)} alt="user profile"/>
+                {:else}
+                  <!-- round avatar placeholder -->
+                  <div class="Avatar inline-block align-text-top | rounded-full bg-gray-100"></div>
+                {/if}
+              </div>
             </a>
           </li>
         {:else}
           <div>
-            <a sveltekit:prefetch href="/login">Log in</a>
+            <a href="/login">Log in</a>
           </div>
         {/if}
       </ul>
@@ -74,16 +82,16 @@
 {#if useMobileMenu}
   <div class="navbar mobile | _content p-0 | block sm:hidden relative flex content-center items-center leading-6">
     <div class="24 pr-2 border-r border-r-white border-r-half">
-      <button on:click={()=>{isMobileNavOpen=!isMobileNavOpen}} class="navbar-toggler collapsed | border-gray-100 border-2" type="button" 
+      <button on:click={()=>{isMenuOpen=!isMenuOpen}} class="navbar-toggler collapsed | border-gray-100 border-2" type="button" 
         data-bs-toggle="collapse" 
         data-bs-target="#navbar-menu" 
-        aria-expanded={isMobileNavOpen}>
+        aria-expanded={isMenuOpen}>
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
 
     <div class="p-2 pr-2 border-r border-r-white border-r-half flex-1 text-center">
-      <a sveltekit:prefetch class="decoration-transparent hover:fill-_hover" href='/'>
+      <a class="decoration-transparent hover:fill-_hover" href='/'>
         <img class="logo block text-center mx-auto" src={logo} alt="" height="2" />
       </a>
     </div>
@@ -92,18 +100,18 @@
       <slot name="rightnav-mobile">
         <ul class="| flex flex-row items-baseline list-none">
           <li class:active={$page.url.pathname === '/'}>
-            <a class="btn font-small mr-2 inline-block" sveltekit:prefetch href="https://github.com/janzheng/sveltekit-starter">
+            <a class="btn font-small mr-2 inline-block" href="https://github.com/janzheng/sveltekit-starter">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>Github
           </a></li>
-           {#if user}
+           {#if $user}
             <li>
-              <a sveltekit:prefetch href="/pocket/profile">
-                <div><img class="Avatar inline-block" src={getAvatar(user?.profile)} alt="user profile"/></div>
+              <a href="/pocket/profile">
+                <div><img class="Avatar inline-block" src={getAvatar($user?.profile)} alt="user profile"/></div>
               </a>
             </li>
           {:else}
             <div>
-              <a sveltekit:prefetch href="/login">Log in</a>
+              <a href="/login">Log in</a>
             </div>
           {/if}
         </ul>

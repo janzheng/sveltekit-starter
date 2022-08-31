@@ -170,7 +170,7 @@ import { browser } from '$app/environment';
 import { fade, fly } from 'svelte/transition';
 import { createForm } from "svelte-forms-lib";
 import * as yup from "yup";
-import {marked} from "marked";
+import { marked } from "marked";
 import { page } from '$app/stores';
 
 import { get } from "svelte/store";

@@ -1,10 +1,9 @@
 
 <script>
-	import { writable } from 'svelte/store';
-	import { page } from '$app/stores';
+	// import { writable } from 'svelte/store';
+	// import { page } from '$app/stores';
 	import { onMount } from "svelte";
 	import { browser } from '$app/environment';
-	import { session } from '$app/stores';
 
 	import Navbar from '$lib/components/sidekit/navbar.svelte';
 	import Pages from '$lib/components/instill/GroupFrame.svelte';
@@ -19,9 +18,6 @@
     name: 'Phage Biobank Working Group',
     slug: 'phage-biobank-working-group',
   }
-
-  // let user, isDataLoaded, error
-	// $: user = $session.user;
 
 </script>
 

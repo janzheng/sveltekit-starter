@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 
 import { getDrive, getBase } from '$plasmid/utils/deta/deta';
 
@@ -17,9 +18,10 @@ export const GET = async () => {
     allItems = allItems.concat(res.items);
   }
 
-  return {
-    body: allItems,
-  };
+  return json(allItems);
+  // return {
+  //   body: allItems,
+  // };
 };
 
 
@@ -39,18 +41,16 @@ export const POST = async ({request}) => {
     })
   }
 
-  console.log('file ref?', fileref)
+  console.log('uploaded file ref?', file, fileref)
   await getBase().put({
     name: form.get('fname'),
     filename: fileref,
   })
 
   console.log('uploaded!!')
-  return {
-    body: {
-      result: "ok!"
-    },
-  };
+  return json({
+    result: "ok!"
+  });
 };
 
 

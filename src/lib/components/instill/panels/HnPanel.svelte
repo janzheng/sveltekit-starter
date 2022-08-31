@@ -5,11 +5,12 @@
   import { tick } from "svelte";
   import { v4 as uuid } from '@lukeed/uuid';
 	import { writable } from 'svelte/store';
-	import { session, page } from '$app/stores';
+	import { page } from '$app/stores';
 	import { onMount } from "svelte";
 	import { browser } from '$app/environment';
   import debounce from 'lodash/debounce'
 
+	import { user } from '$lib/store'
 
 	import Post from '$lib/components/instill/blocks/Post.svelte';
 
@@ -37,8 +38,7 @@
 
 
   // panel data
-  let user, isDataLoaded, error
-	$: user = $session.user;
+  let isDataLoaded, error
 
   // post data
   export let showEditor = false
@@ -49,7 +49,7 @@
 
   export let newPost = writable({
     source: `${source}`,
-    userId: user?.id,
+    userId: $user?.id,
   })
 
   const refreshData = async () => {

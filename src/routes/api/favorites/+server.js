@@ -1,9 +1,12 @@
 
+
 /* 
 
 FAVES endpoints
 
 */
+
+import { json } from '@sveltejs/kit';
 
 import arrayPage from 'array-page'
 import { env } from '$env/dynamic/public';
@@ -104,22 +107,25 @@ export const getFavorites = async ({ locals, url, params, request }) => {
   if (search) {
     let results = await getFaveSearch(search, pages)
     console.log('fave len:', results.length)
-    return {
-      body: results // return global var
-    }
+    return json(results)
+    // return {
+    //   body: results // return global var
+    // }
   } else if (user) {
     let results = await getUserSearch(user, pages)
     console.log('user len:', results.length)
-    return {
-      body: results // return global var
-    }
+    return json(results)
+    // return {
+    //   body: results // return global var
+    // }
   } else {
     try {
       let results = await getPagedFaves(pages)
       console.log('len:', results.length)
-      return {
-        body: results // return global var
-      }
+      return json(results)
+      // return {
+      //   body: results // return global var
+      // }
     } catch (e) {
       console.log('GET error', e)
     }
@@ -135,9 +141,10 @@ export const postFavorites = async ({ locals, url, params, request }) => {
   //   user = localUser.profile.username
   // }
 
-  return {
-    body: {}
-  }
+  return json({})
+  // return {
+  //   body: {}
+  // }
 }
 
 

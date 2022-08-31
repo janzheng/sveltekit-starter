@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import notionClient from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
 
@@ -32,8 +33,8 @@ export async function GET({ url }) {
     const mdString = n2m.toMarkdownString(mdblocks);
 
     // return { body: mdString }
-    return { body: { markdown: mdString} }
+    return json({ markdown: mdString})
   }
   // return { body: {} }
-  return { status: 400 }
+  return new Response(undefined, { status: 400 })
 }

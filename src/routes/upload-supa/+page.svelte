@@ -1,29 +1,9 @@
-<script context="module">
-	// import { enhance } from '$lib/form';
 
-	// // see https://kit.svelte.dev/docs#loading
-	// export const load = async ({ fetch }) => {
-	// 	const res = await fetch('/deta/api');
+<!-- 
 
-	// 	if (res.ok) {
-	// 		const items = await res.json();
+  TODO: get Supabase working again
 
-	// 		return {
-	// 			props: { items }
-	// 		};
-	// 	}
-
-	// 	const { message } = await res.json();
-
-	// 	return {
-	// 		error: new Error(message)
-	// 	};
-	// };
-
-</script>
-
-
-
+ -->
 
 <div class="_content">
 	<!-- <h1>Supabase Upload Example</h1>
@@ -49,10 +29,11 @@
 
 <script>
 
+
   // import { createClient } from '@supabase/supabase-js'
 
-  // console.log('?!', import.meta.env.VITE_SUPABASE_URL)
-  // export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBKEY)
+  // console.log('?!', import.meta.env.PUBLIC_SUPABASE_URL)
+  // export const supabase = createClient(import.meta.env.PUBLIC_SUPABASE_URL, import.meta.env.PUBLIC_SUPABASE_PUBKEY)
 
   // let files
 
@@ -64,7 +45,7 @@
   //     .from('uploads')
   //     .upload(file.name, file)
 
-  //   let url = encodeURI(`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/uploads/${file.name}`)
+  //   let url = encodeURI(`${import.meta.env.PUBLIC_SUPABASE_URL}/storage/v1/object/public/uploads/${file.name}`)
   //   console.log(data,error,'file:', url)
   
   //   const res = await fetch(

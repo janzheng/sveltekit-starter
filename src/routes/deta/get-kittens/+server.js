@@ -1,3 +1,4 @@
+
 /* 
 
   [SvKit Endpoint]
@@ -9,9 +10,16 @@
 
 */
 
-import { _get } from '$plasmid/utils/deta/kittens';
+import { json } from '@sveltejs/kit'
+import { _get } from '$plasmid/utils/deta/kittens.js';
 
 
 
 // Expose the deta key on purpose
-export const GET = _get
+export const GET = async ()=>{
+  let body
+  body = await _get()
+  return json(body)
+}
+
+

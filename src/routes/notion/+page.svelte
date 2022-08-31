@@ -1,29 +1,11 @@
-<script context="module">
-	// export const prerender = true;
-  
-	// see https://kit.svelte.dev/docs#loading
-	export const load = async ({ fetch }) => {
-    let blocks, res
-    
-		res = await fetch('/api/endpoints/grabby?id=approach');
-		if (res.ok) {
-			let json = await res.json();
-      blocks = json
-      return {
-        props: { 
-          blocks
-        }
-      };
-		}
-	};
-</script>
-
 <script>
   import Notion from '@yawnxyz/sveltekit-notion'
 	import { browser } from '$app/environment';
 
-  export let blocks
+  export let data
+  export let {blocks} = data
   
+  // $: console.log('blocks:', blocks)
 </script>
 
 

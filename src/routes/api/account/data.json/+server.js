@@ -1,18 +1,14 @@
 
 // fake data endpoint
+import { json } from '@sveltejs/kit';
 
-export function GET({ locals }) {
+export const GET = async ({ locals }) => {
+  console.log('[api/account/data.json/+server.js] locals', locals )
   const data = locals.user ? { 
     sales: 100, 
     newCustomers: 54,
     user: locals.user,
   } : {};
 
-  return {
-    body: JSON.stringify(data),
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
+  return json(data)
 }
